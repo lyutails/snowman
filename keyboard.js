@@ -3,7 +3,6 @@ keyboard.classList.add("snowman_keyboard");
 
 const keyboardWrapper = document.createElement("div");
 keyboardWrapper.classList.add("snowman_keyboard_wrapper");
-keyboardWrapper.textContent = "keep the warmth";
 keyboard.appendChild(keyboardWrapper);
 
 const keyboardBody = document.createElement("div");
@@ -44,13 +43,6 @@ lettersArray.forEach((item, i) => {
   item.textContent = lettersArray.at(i);
   keyboardBody.appendChild(item);
 });
-
-/* for (let i = 0; i <= lettersArray; i++) {
-  item[i] = document.createElement("div");
-  item.classList.add("snowman_keyboard_letter");
-  // item[i].textContent = [i];
-  keyboardBody.appendChild(item);
-} */
 
 keyboardWrapper.appendChild(keyboardBody);
 

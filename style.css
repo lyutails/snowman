@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Long+Cang&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -14,6 +19,12 @@ html {
 
 body {
   height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: url("./assets/pics/background/snowman_background_01.PNG");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 body {
@@ -33,7 +44,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: linear-gradient(coral, plum);
+  background: linear-gradient(lightgreen, green);
   border-radius: 20px;
   outline: 1px solid transparent;
 }
@@ -41,22 +52,33 @@ body::-webkit-scrollbar-thumb {
 .snowman_keyboard {
   width: 100%;
 }
-.snowman_keyboard_wrapper {
-  width: 80vw;
+.snowman_wrapper {
+  width: 90vw;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.snowman_keyboard {
+  flex: 1 0 auto;
+}
+.snowman_keyboard_wrapper {
+  width: 100%;
 }
 .snowman_keyboard_body {
-  width: 100%;
-  height: 300px;
   background-color: rgb(255, 248, 239);
   border: 10px solid bisque;
   border-radius: 10px;
-  padding: 20px 30px;
+  padding: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  row-gap: 20px;
+  max-width: 1000px;
+  min-width: 300px;
+  margin: 0 auto;
 }
 .snowman_keyboard_letter {
   width: 10%;
@@ -68,5 +90,97 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  font-family: "Rubik Doodle Shadow", system-ui;
+  font-family: "Patrick Hand", cursive;
+  transition: all 0.2s ease-in-out;
+}
+.snowman_keyboard_letter:hover {
+  cursor: pointer;
+  background-color: green;
+}
+.snowman_title {
+  font-size: 2rem;
+  font-family: "Rubik Bubbles", system-ui;
+  color: mediumvioletred;
+  margin: 0 auto;
+}
+.snowman_snowman {
+  width: 30%;
+  aspect-ratio: 1/1;
+  background-image: url("./assets/pics/snowman/snowman_full.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  max-width: 380px;
+  min-width: 150px;
+  background-position: center center;
+}
+.snowman_lives {
+  width: 50vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.snowman_heart {
+  width: 10%;
+  aspect-ratio: 1/1;
+  background-image: url("./assets/icons/heart.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: scale(1);
+  animation-name: heartAnim;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.snowman_footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.snowman_orange {
+  width: 10%;
+  aspect-ratio: 1/1;
+  background-image: url("./assets/pics/orange.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  align-self: right;
+  max-width: 150px;
+  min-width: 80px;
+}
+.snowman_credentials {
+  display: flex;
+  flex-direction: column;
+}
+.snowman_info {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: "Long Cang", cursive;
+  color: darkslateblue;
+}
+.snowman_word {
+  width: 50vw;
+  height: 50px;
+  background-color: bisque;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@keyframes heartAnim {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }/*# sourceMappingURL=style.css.map */
