@@ -16,6 +16,10 @@
 // font-family: 'Long Cang', cursive;
 @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 // font-family: 'Patrick Hand', cursive;
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+// font-family: 'Macondo', cursive;
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+// font-family: 'Architects Daughter', cursive;
 
 html {
   height: 100%;
@@ -30,7 +34,7 @@ body {
   // background: linear-gradient(rgb(252, 252, 239), rgb(121, 208, 255));
   display: flex;
   flex-direction: column;
-  background-image: url('./assets/pics/background/snowman_background_01.PNG');
+  background-image: url("./assets/pics/background/snowman_background_01.PNG");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -154,6 +158,8 @@ body::-webkit-scrollbar-thumb {
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    max-width: 60px;
+    min-width: 30px;
   }
 
   &_footer {
@@ -163,6 +169,8 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
+    overflow: hidden;
+    margin-top: 20px;
   }
 
   &_orange {
@@ -174,6 +182,11 @@ body::-webkit-scrollbar-thumb {
     align-self: right;
     max-width: 150px;
     min-width: 80px;
+    transform: translateX(0vw) rotate(0deg);
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &_credentials {
@@ -196,6 +209,33 @@ body::-webkit-scrollbar-thumb {
     margin-top: 30px;
     margin-bottom: 30px;
   }
+
+  &_question {
+    font-size: 1.2rem;
+    text-align: center;
+    font-family: "Architects Daughter", cursive;
+    text-shadow: 0 0 10px lightblue, 0 0 5px lightseagreen;
+    animation-name: questionAnim;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+}
+
+.snowman_orange.anim_forward {
+  animation-name: orangeAnim;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.snowman_orange.anim_backward {
+  animation-name: orangeAnimBack;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes heartAnim {
@@ -207,5 +247,41 @@ body::-webkit-scrollbar-thumb {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes questionAnim {
+  0% {
+    text-shadow: 0 0 10px lightblue, 0 0 5px lightseagreen;
+  }
+  25% {
+    text-shadow: 0 0 10px pink, 0 0 5px deeppink;
+  }
+  50% {
+    text-shadow: 0 0 10px lightcoral, 0 0 5px coral;
+  }
+  75% {
+    text-shadow: 0 0 10px lightgreen, 0 0 5px green;
+  }
+  100% {
+    text-shadow: 0 0 10px lightblue, 0 0 5px lightseagreen;
+  }
+}
+
+@keyframes orangeAnim {
+  0% {
+    transform: translateX(0vw) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50vw) rotate(-360deg);
+  }
+}
+
+@keyframes orangeAnimBack {
+  0% {
+    transform: translateX(-50vw) rotate(-360deg);
+  }
+  100% {
+    transform: translateX(0vw) rotate(0deg);
   }
 }

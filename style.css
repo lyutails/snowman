@@ -5,6 +5,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Long+Cang&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -135,6 +137,8 @@ body::-webkit-scrollbar-thumb {
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+  max-width: 60px;
+  min-width: 30px;
 }
 .snowman_footer {
   width: 100%;
@@ -143,6 +147,8 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
+  overflow: hidden;
+  margin-top: 20px;
 }
 .snowman_orange {
   width: 10%;
@@ -153,6 +159,10 @@ body::-webkit-scrollbar-thumb {
   align-self: right;
   max-width: 150px;
   min-width: 80px;
+  transform: translateX(0vw) rotate(0deg);
+}
+.snowman_orange:hover {
+  cursor: pointer;
 }
 .snowman_credentials {
   display: flex;
@@ -172,6 +182,32 @@ body::-webkit-scrollbar-thumb {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+.snowman_question {
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: "Architects Daughter", cursive;
+  text-shadow: 0 0 10px lightblue, 0 0 5px lightseagreen;
+  animation-name: questionAnim;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.snowman_orange.anim_forward {
+  animation-name: orangeAnim;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.snowman_orange.anim_backward {
+  animation-name: orangeAnimBack;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
 
 @keyframes heartAnim {
   0% {
@@ -182,5 +218,38 @@ body::-webkit-scrollbar-thumb {
   }
   100% {
     transform: scale(1);
+  }
+}
+@keyframes questionAnim {
+  0% {
+    text-shadow: 0 0 10px lightblue, 0 0 5px lightseagreen;
+  }
+  25% {
+    text-shadow: 0 0 10px pink, 0 0 5px deeppink;
+  }
+  50% {
+    text-shadow: 0 0 10px lightcoral, 0 0 5px coral;
+  }
+  75% {
+    text-shadow: 0 0 10px lightgreen, 0 0 5px green;
+  }
+  100% {
+    text-shadow: 0 0 10px lightblue, 0 0 5px lightseagreen;
+  }
+}
+@keyframes orangeAnim {
+  0% {
+    transform: translateX(0vw) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50vw) rotate(-360deg);
+  }
+}
+@keyframes orangeAnimBack {
+  0% {
+    transform: translateX(-50vw) rotate(-360deg);
+  }
+  100% {
+    transform: translateX(0vw) rotate(0deg);
   }
 }/*# sourceMappingURL=style.css.map */
