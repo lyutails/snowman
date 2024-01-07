@@ -3,10 +3,13 @@ import questions from "./questions.js";
 const word = document.createElement("div");
 word.classList.add("snowman_word");
 
-questions[0].answer.split("").forEach((item) => {
-  item = document.createElement("div");
-  item.classList.add("snowman_answer_letter");
-  word.appendChild.item;
+const asnwerArray = questions[0].answer.split("");
+
+asnwerArray.forEach((letter, i) => {
+  letter = document.createElement("div");
+  letter.classList.add("snowman_answer_letter");
+  letter.textContent = asnwerArray.at(i);
+  word.appendChild(letter);
 });
 
 export default word;

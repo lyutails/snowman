@@ -7,6 +7,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sevillana&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=WindSong&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -70,40 +86,62 @@ body::-webkit-scrollbar-thumb {
 .snowman_keyboard_body {
   background-color: rgb(255, 248, 239);
   border: 10px solid bisque;
-  border-radius: 10px;
-  padding: 40px;
+  border-radius: 20px;
+  padding: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  row-gap: 20px;
   max-width: 1000px;
   min-width: 300px;
   margin: 0 auto;
 }
 .snowman_keyboard_letter {
-  width: 10%;
+  width: 8%;
   aspect-ratio: 1/1;
   background-color: lightgreen;
   border: 1px solid green;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: "Patrick Hand", cursive;
   transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), inset green 0px 0px 20px 0px;
+  margin: 5px;
 }
 .snowman_keyboard_letter:hover {
   cursor: pointer;
   background-color: green;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8), inset rgb(1, 43, 1) 0px 0px 20px 0px;
+}
+.snowman_keyboard_letter:active {
+  cursor: pointer;
+  background-color: red;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8), inset darkred 0px 0px 20px 0px;
+  border: 1px solid darkred;
 }
 .snowman_title {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.snowman_title_text {
   font-size: 2rem;
   font-family: "Rubik Bubbles", system-ui;
   color: mediumvioletred;
-  margin: 0 auto;
+}
+.snowman_pushishka {
+  width: 10%;
+  aspect-ratio: 1/1;
+  background-image: url("./assets/pics/pushishka_01.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .snowman_snowman {
   width: 30%;
@@ -177,10 +215,13 @@ body::-webkit-scrollbar-thumb {
 .snowman_word {
   width: 50vw;
   height: 50px;
-  background-color: bisque;
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .snowman_question {
   font-size: 1.2rem;
@@ -191,6 +232,20 @@ body::-webkit-scrollbar-thumb {
   animation-duration: 4s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+.snowman_answer_letter {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background-image: url("./assets/pics/cupcake.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 80%;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.4));
 }
 
 .snowman_orange.anim_forward {

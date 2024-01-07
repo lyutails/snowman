@@ -38,9 +38,14 @@ const lettersArray = [
 ];
 
 lettersArray.forEach((item, i) => {
-  item = document.createElement("div");
+  item = document.createElement("button");
   item.classList.add("snowman_keyboard_letter");
   item.textContent = lettersArray.at(i);
+  item.onclick = function() {
+    console.log(lettersArray.at(i));
+    item.setAttribute('disabled', true);
+    item.style.backgroundColor = 'snow';
+  }
   keyboardBody.appendChild(item);
 });
 
