@@ -1,5 +1,8 @@
+import soundWrapper from "./sound.js";
+
 const title = document.createElement("div");
 title.classList.add("snowman_title");
+title.appendChild(soundWrapper);
 
 const titleText = document.createElement("p");
 titleText.classList.add("snowman_title_text");

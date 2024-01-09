@@ -20,37 +20,37 @@
 // font-family: 'Macondo', cursive;
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
 // font-family: 'Architects Daughter', cursive;
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 // font-family: 'Dancing Script', cursive;
-@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
 // font-family: 'Caveat', cursive;
-@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
 // font-family: 'Shadows Into Light', cursive;
-@import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sevillana&display=swap");
 // font-family: 'Sevillana', cursive;
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 // font-family: 'Permanent Marker', cursive;
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 // font-family: 'Satisfy', cursive;
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&display=swap");
 // font-family: 'DotGothic16', sans-serif;
-@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 // font-family: 'Sacramento', cursive;
-@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
 // font-family: 'Cookie', cursive;
-@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap");
 // font-family: 'Gloria Hallelujah', cursive;
-@import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap");
 // font-family: 'Passions Conflict', cursive;
-@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
 // font-family: 'Silkscreen', sans-serif;
-@import url('https://fonts.googleapis.com/css2?family=WindSong&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=WindSong&display=swap");
 // font-family: 'WindSong', cursive;
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 // font-family: 'Press Start 2P', system-ui;
-@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
 // font-family: 'Creepster', system-ui;
-@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
 // font-family: 'Titan One', sans-serif;
 
 html {
@@ -69,6 +69,10 @@ body {
   background-image: url("./assets/pics/background/snowman_background_01.PNG");
   background-repeat: no-repeat;
   background-size: cover;
+  animation-name: backgroundForestAnim;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 body {
@@ -100,6 +104,8 @@ body::-webkit-scrollbar-thumb {
 
   &_wrapper {
     width: 90vw;
+    max-width: 1000px;
+    min-width: 360px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -155,14 +161,13 @@ body::-webkit-scrollbar-thumb {
     &:active {
       cursor: pointer;
       background-color: red;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.8),
-        inset darkred 0px 0px 20px 0px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.8), inset darkred 0px 0px 20px 0px;
       border: 1px solid darkred;
     }
   }
 
   &_title {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -174,6 +179,50 @@ body::-webkit-scrollbar-thumb {
     font-size: 2rem;
     font-family: "Rubik Bubbles", system-ui;
     color: mediumvioletred;
+    text-align: center;
+  }
+
+  &_sound_wrapper {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &_sound {
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    background-image: url("./assets/icons//bell-christmas-eve.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    transform-origin: top center;
+    transform: rotate(0deg);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &_sound_name {
+    font-family: "Architects Daughter", cursive;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  &_audiolist {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &_songicons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
   }
 
   &_pushishka {
@@ -257,7 +306,7 @@ body::-webkit-scrollbar-thumb {
   &_info {
     text-decoration: none;
     font-size: 1.5rem;
-    font-family: 'Long Cang', cursive;
+    font-family: "Long Cang", cursive;
     color: darkslateblue;
   }
 
@@ -302,6 +351,30 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+.snowman_songicon {
+  width: 30%;
+  aspect-ratio: 1 / 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.jingle {
+    background-image: url("./assets/icons/santa-and-reindeer.svg");
+  }
+
+  &.ballet {
+    background-image: url("./assets/icons/ballet.svg");
+  }
+
+  &.train {
+    background-image: url("./assets/icons/train.svg");
+  }
+}
+
 .snowman_orange.anim_forward {
   animation-name: orangeAnim;
   animation-duration: 4s;
@@ -316,6 +389,13 @@ body::-webkit-scrollbar-thumb {
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+}
+
+.snowman_sound.anim {
+  animation-name: bellAnim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 @keyframes heartAnim {
@@ -363,5 +443,53 @@ body::-webkit-scrollbar-thumb {
   }
   100% {
     transform: translateX(0vw) rotate(0deg);
+  }
+}
+
+@keyframes bellAnim {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes backgroundForestAnim {
+  0% {
+    background-image: url("./assets/pics/background/snowman_background_01.PNG");
+  }
+  20% {
+    background-image: url("./assets/pics/background/snowman_background_02.PNG");
+  }
+  25% {
+    background-image: url("./assets/pics/background/snowman_background_02.PNG");
+  }
+  30% {
+    background-image: url("./assets/pics/background/snowman_background_01.PNG");
+  }
+  70% {
+    background-image: url("./assets/pics/background/snowman_background_01.PNG");
+  }
+  75% {
+    background-image: url("./assets/pics/background/snowman_background_03.PNG");
+  }
+  80% {
+    background-image: url("./assets/pics/background/snowman_background_03.PNG");
+  }
+  85% {
+    background-image: url("./assets/pics/background/snowman_background_01.PNG");
+  }
+  100% {
+    background-image: url("./assets/pics/background/snowman_background_01.PNG");
   }
 }
