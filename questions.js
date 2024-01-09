@@ -55,7 +55,7 @@ const questions = [
     id: 11,
     question:
       "How many Christmas trees are put in the Great Hall at Hogwarts for Christmas?",
-    answer: "twelwe",
+    answer: "twelve",
   },
   {
     id: 12,

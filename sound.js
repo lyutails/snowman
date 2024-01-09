@@ -14,7 +14,7 @@ const songsArray = [
     id: 3,
     song_path: "./assets/audio/Nick_Cave_O_Children.mp3",
     song_name: "Nick Cave Children",
-  }
+  },
 ];
 
 const soundWrapper = document.createElement("div");
@@ -23,6 +23,14 @@ soundWrapper.classList.add("snowman_sound_wrapper");
 const soundIcon = document.createElement("div");
 soundIcon.classList.add("snowman_sound");
 soundWrapper.appendChild(soundIcon);
+
+const volumeControl = document.createElement("input");
+volumeControl.classList.add("snowman_volume_control");
+volumeControl.setAttribute("type", "range");
+volumeControl.setAttribute("min", "0");
+volumeControl.setAttribute("max", "100");
+volumeControl.value = 20;
+soundWrapper.appendChild(volumeControl);
 
 const audioList = document.createElement("div");
 audioList.classList.add("snowman_audiolist");
@@ -40,6 +48,13 @@ soundName.textContent = songsArray[0].song_name;
 
 let currentSong = new Audio(songsArray[0].song_path);
 
+function setVolume() {
+  currentSong.volume = volumeControl.value / 100;
+}
+
+setVolume();
+
+
 let loopSong = currentSong.loop;
 loopSong = true;
 
@@ -53,6 +68,7 @@ for (let i = 0; i <= 2; i++) {
   songIcon.onclick = () => {
     soundName.textContent = songsArray[i].song_name;
     currentSong = new Audio(songsArray[i].song_path);
+    currentSong.addEventListener("ended", currentSong);
   };
 }
 
@@ -69,7 +85,5 @@ soundIcon.onclick = () => {
     soundIcon.classList.remove("anim");
   }
 };
-
-currentSong.volume = 0.2;
 
 export default soundWrapper;

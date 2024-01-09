@@ -424,25 +424,43 @@ body::-webkit-scrollbar-thumb {
   0% {
     background-image: url("./assets/pics/background/snowman_background_01.PNG");
   }
-  20% {
+  10% {
     background-image: url("./assets/pics/background/snowman_background_02.PNG");
+  }
+  15% {
+    background-image: url("./assets/pics/background/snowman_background_02.PNG");
+  }
+  20% {
+    background-image: url("./assets/pics/background/snowman_background_01.PNG");
   }
   25% {
-    background-image: url("./assets/pics/background/snowman_background_02.PNG");
+    background-image: url("./assets/pics/background/snowman_background_03.PNG");
   }
   30% {
+    background-image: url("./assets/pics/background/snowman_background_03.PNG");
+  }
+  35% {
     background-image: url("./assets/pics/background/snowman_background_01.PNG");
+  }
+  40% {
+    background-image: url("./assets/pics/background/snowman_background_04.PNG");
+  }
+  45% {
+    background-image: url("./assets/pics/background/snowman_background_04.PNG");
+  }
+  50% {
+    background-image: url("./assets/pics/background/snowman_background_01.PNG");
+  }
+  55% {
+    background-image: url("./assets/pics/background/snowman_background_01.PNG");
+  }
+  60% {
+    background-image: url("./assets/pics/background/snowman_background_05.PNG");
+  }
+  65% {
+    background-image: url("./assets/pics/background/snowman_background_05.PNG");
   }
   70% {
-    background-image: url("./assets/pics/background/snowman_background_01.PNG");
-  }
-  75% {
-    background-image: url("./assets/pics/background/snowman_background_03.PNG");
-  }
-  80% {
-    background-image: url("./assets/pics/background/snowman_background_03.PNG");
-  }
-  85% {
     background-image: url("./assets/pics/background/snowman_background_01.PNG");
   }
   100% {
