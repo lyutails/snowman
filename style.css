@@ -255,6 +255,20 @@ body::-webkit-scrollbar-thumb {
   font-size: 1.5rem;
   font-family: "Long Cang", cursive;
   color: darkslateblue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: black;
+}
+.snowman_creator_icon {
+  width: 4vw;
+  aspect-ratio: 1/1;
+  max-width: 50px;
+  min-width: 30px;
+  background-image: url("./assets/icons/tiny_fox.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
 }
 .snowman_word {
   width: 50vw;
@@ -333,6 +347,16 @@ body::-webkit-scrollbar-thumb {
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+
+.snowman_info.rsschool {
+  width: 10vw;
+  aspect-ratio: 1/0.4;
+  max-width: 130px;
+  min-width: 80px;
+  background-image: url("./assets/icons/logo-rsschool_ny.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 @keyframes heartAnim {

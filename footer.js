@@ -6,16 +6,23 @@ credentials.classList.add("snowman_credentials");
 footer.append(credentials);
 
 const school = document.createElement("a");
-school.classList.add("snowman_info");
+school.classList.add("snowman_info", "rsschool");
 credentials.append(school);
-school.textContent = "RSSchool";
+// school.textContent = "RSSchool";
 school.setAttribute("href", "https://rs.school/");
 
 const creator = document.createElement("a");
 creator.classList.add("snowman_info");
 credentials.append(creator);
-creator.textContent = "lyutails";
 creator.setAttribute("href", "https://github.com/lyutails");
+
+const creatorName = document.createElement("p");
+creatorName.textContent = "lyutails";
+creator.appendChild(creatorName);
+
+const creatorIcon = document.createElement("span");
+creatorIcon.classList.add("snowman_creator_icon");
+creator.appendChild(creatorIcon);
 
 const orange = document.createElement("div");
 orange.classList.add("snowman_orange");

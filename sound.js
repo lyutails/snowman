@@ -40,6 +40,9 @@ soundName.textContent = songsArray[0].song_name;
 
 let currentSong = new Audio(songsArray[0].song_path);
 
+let loopSong = currentSong.loop;
+loopSong = true;
+
 const songIconsArray = ["jingle", "ballet", "train"];
 
 for (let i = 0; i <= 2; i++) {
