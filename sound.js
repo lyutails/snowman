@@ -29,8 +29,25 @@ volumeControl.classList.add("snowman_volume_control");
 volumeControl.setAttribute("type", "range");
 volumeControl.setAttribute("min", "0");
 volumeControl.setAttribute("max", "100");
-volumeControl.value = 20;
 soundWrapper.appendChild(volumeControl);
+
+let min = volumeControl.min;
+let max = volumeControl.max;
+volumeControl.value = 20;
+
+volumeControl.style.background = `linear-gradient(to top, red 0%, red ${
+  ((volumeControl.value - min) / (max - min)) * 100
+}%, #DEE2E6 ${
+  ((volumeControl.value - min) / (max - min)) * 100
+}%, #DEE2E6 100%)`;
+
+volumeControl.oninput = function () {
+  volumeControl.style.background = `linear-gradient(to top, red 0%, red ${
+    ((volumeControl.value - this.min) / (this.max - this.min)) * 100
+  }%, #DEE2E6 ${
+    ((volumeControl.value - this.min) / (this.max - this.min)) * 100
+  }%, #DEE2E6 100%)`;
+};
 
 const audioList = document.createElement("div");
 audioList.classList.add("snowman_audiolist");
@@ -53,7 +70,6 @@ function setVolume() {
 }
 
 setVolume();
-
 
 let loopSong = currentSong.loop;
 loopSong = true;

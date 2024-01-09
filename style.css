@@ -138,7 +138,7 @@ body::-webkit-scrollbar-thumb {
   margin: 0 auto;
 }
 .snowman_title_text {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: "Rubik Bubbles", system-ui;
   color: mediumvioletred;
   text-align: center;
@@ -169,7 +169,7 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
 }
 .snowman_audiolist {
-  width: 80%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,6 +186,30 @@ body::-webkit-scrollbar-thumb {
   background-image: url("./assets/pics/pushishka_01.png");
   background-repeat: no-repeat;
   background-size: contain;
+}
+.snowman_restart {
+  width: 10%;
+  aspect-ratio: 1/0.5;
+  border-radius: 10px;
+  border: 1px solid green;
+  background: linear-gradient(lightgreen, lightgreen);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), inset green 0px 0px 15px 0px;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  font-family: "Patrick Hand", cursive;
+  font-size: 0.8rem;
+}
+.snowman_restart:hover {
+  cursor: pointer;
+  background: linear-gradient(plum, orchid);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6), inset purple 0px 0px 15px 0px;
+  border: 1px solid darkmagenta;
+}
+.snowman_restart:active {
+  cursor: pointer;
+  background: linear-gradient(lightpink, hotpink);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8), inset deeppink 0px 0px 15px 0px;
+  border: 1px solid mediumvioletred;
 }
 .snowman_snowman {
   width: 30%;
@@ -466,4 +490,47 @@ body::-webkit-scrollbar-thumb {
   100% {
     background-image: url("./assets/pics/background/snowman_background_01.PNG");
   }
-}/*# sourceMappingURL=style.css.map */
+}
+/* input[type=range] {
+    height: 38px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+  } */
+/* input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  cursor: pointer;
+  // box-shadow: 1px 1px 1px #000000;
+  background: rgb(11, 194, 255);
+  // border-radius: 5px;
+  // border: 1px solid #000000;
+} */
+.snowman_volume_control {
+  -webkit-appearance: none;
+  width: 8px;
+  height: 80px;
+  writing-mode: vertical-lr;
+  border-radius: 5px;
+  accent-color: #f55050;
+}
+
+.snowman_volume_control::-webkit-slider-thumb {
+  writing-mode: vertical-lr;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  background-image: url("./assets/icons/snowflakes/snowflake-6.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* input[type="range"] {
+    accent-color: #f55050;
+} *//*# sourceMappingURL=style.css.map */
