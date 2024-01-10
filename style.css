@@ -491,30 +491,14 @@ body::-webkit-scrollbar-thumb {
     background-image: url("./assets/pics/background/snowman_background_01.PNG");
   }
 }
-/* input[type=range] {
-    height: 38px;
-    -webkit-appearance: none;
-    margin: 10px 0;
-    width: 100%;
-  } */
-/* input[type="range"]:focus {
-  outline: none;
-}
-
-input[type="range"]::-webkit-slider-runnable-track {
-  cursor: pointer;
-  // box-shadow: 1px 1px 1px #000000;
-  background: rgb(11, 194, 255);
-  // border-radius: 5px;
-  // border: 1px solid #000000;
-} */
 .snowman_volume_control {
   -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   width: 8px;
   height: 80px;
   writing-mode: vertical-lr;
   border-radius: 5px;
-  accent-color: #f55050;
 }
 
 .snowman_volume_control::-webkit-slider-thumb {

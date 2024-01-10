@@ -31,24 +31,6 @@ volumeControl.setAttribute("min", "0");
 volumeControl.setAttribute("max", "100");
 soundWrapper.appendChild(volumeControl);
 
-let min = volumeControl.min;
-let max = volumeControl.max;
-volumeControl.value = 20;
-
-volumeControl.style.background = `linear-gradient(to top, red 0%, red ${
-  ((volumeControl.value - min) / (max - min)) * 100
-}%, #DEE2E6 ${
-  ((volumeControl.value - min) / (max - min)) * 100
-}%, #DEE2E6 100%)`;
-
-volumeControl.oninput = function () {
-  volumeControl.style.background = `linear-gradient(to top, red 0%, red ${
-    ((volumeControl.value - this.min) / (this.max - this.min)) * 100
-  }%, #DEE2E6 ${
-    ((volumeControl.value - this.min) / (this.max - this.min)) * 100
-  }%, #DEE2E6 100%)`;
-};
-
 const audioList = document.createElement("div");
 audioList.classList.add("snowman_audiolist");
 soundWrapper.appendChild(audioList);
@@ -65,11 +47,31 @@ soundName.textContent = songsArray[0].song_name;
 
 let currentSong = new Audio(songsArray[0].song_path);
 
-function setVolume() {
+/* function setVolume() {
   currentSong.volume = volumeControl.value / 100;
 }
 
-setVolume();
+setVolume(); */
+
+let min = volumeControl.min;
+let max = volumeControl.max;
+volumeControl.value = 20;
+
+volumeControl.style.background = `linear-gradient(to top, red 0%, red ${
+  ((volumeControl.value - min) / (max - min)) * 100
+}%, #DEE2E6 ${
+  ((volumeControl.value - min) / (max - min)) * 100
+}%, #DEE2E6 100%)`;
+
+volumeControl.oninput = function () {
+  volumeControl.style.background = `linear-gradient(to top, red 0%, red ${
+    ((volumeControl.value - this.min) / (this.max - this.min)) * 100
+  }%, #DEE2E6 ${
+    ((volumeControl.value - this.min) / (this.max - this.min)) * 100
+  }%, #DEE2E6 100%)`;
+
+  currentSong.volume = volumeControl.value / 100;
+};
 
 let loopSong = currentSong.loop;
 loopSong = true;
