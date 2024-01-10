@@ -323,6 +323,8 @@ body::-webkit-scrollbar-thumb {
   background-size: contain;
   width: 80%;
   aspect-ratio: 1/1;
+  max-width: 60px;
+  min-width: 30px;
   display: flex;
   align-items: center;
   justify-content: center;

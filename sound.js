@@ -43,16 +43,6 @@ const songIcons = document.createElement("div");
 songIcons.classList.add("snowman_songicons");
 audioList.appendChild(songIcons);
 
-soundName.textContent = songsArray[0].song_name;
-
-let currentSong = new Audio(songsArray[0].song_path);
-
-/* function setVolume() {
-  currentSong.volume = volumeControl.value / 100;
-}
-
-setVolume(); */
-
 let min = volumeControl.min;
 let max = volumeControl.max;
 volumeControl.value = 20;
@@ -73,9 +63,6 @@ volumeControl.oninput = function () {
   currentSong.volume = volumeControl.value / 100;
 };
 
-let loopSong = currentSong.loop;
-loopSong = true;
-
 const songIconsArray = ["jingle", "ballet", "train"];
 
 for (let i = 0; i <= 2; i++) {
@@ -86,12 +73,27 @@ for (let i = 0; i <= 2; i++) {
   songIcon.onclick = () => {
     soundName.textContent = songsArray[i].song_name;
     currentSong = new Audio(songsArray[i].song_path);
-    currentSong.addEventListener("ended", currentSong);
+
+    currentSong.setAttribute("loop", true);
   };
 }
 
+soundName.textContent = songsArray[0].song_name;
+
+let currentSong = new Audio(songsArray[0].song_path);
+
+currentSong.setAttribute("loop", true);
+
 function playSound() {
   currentSong.play();
+
+  let loopSong = currentSong.loop;
+  loopSong = true;
+
+  currentSong.addEventListener("ended", function() {
+    this.currentTime = 0;
+    currentSong.play()
+  }, false);
 }
 
 soundIcon.onclick = () => {
