@@ -90,8 +90,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 .snowman_keyboard_body {
-  background-color: rgb(255, 248, 239);
-  border: 10px solid bisque;
+  border: 1px solid antiquewhite;
   border-radius: 20px;
   padding: 20px;
   display: flex;
@@ -102,6 +101,8 @@ body::-webkit-scrollbar-thumb {
   max-width: 1000px;
   min-width: 300px;
   margin: 0 auto;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 .snowman_keyboard_letter {
   width: 8%;
@@ -117,6 +118,9 @@ body::-webkit-scrollbar-thumb {
   transition: all 0.2s ease-in-out;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), inset green 0px 0px 20px 0px;
   margin: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .snowman_keyboard_letter:hover {
   cursor: pointer;
@@ -330,6 +334,9 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
   font-weight: 800;
   filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.4));
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .snowman_songicon {
