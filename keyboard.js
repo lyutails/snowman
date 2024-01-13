@@ -5,6 +5,8 @@ import { usedLetters } from "./constants.js";
 import questions from "./questions.js";
 import { answerElements } from "./answer.js";
 import { yepAnim } from "./yep_anim.js";
+import { heartAnim } from "./heart_anim.js";
+import { hearts } from "./lives.js";
 
 const keyboardBody = createLayout({
   elementname: "keyboardBody",
@@ -73,6 +75,7 @@ export function checkAnswerLetter(letter, word, elements) {
     yep = false;
     runYepAnim(yep, letter);
     console.log("white");
+    heartAnim(hearts);
   }
 }
 

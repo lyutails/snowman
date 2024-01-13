@@ -7,6 +7,8 @@ const lives = createLayout({
   tag: "div",
 });
 
+export let hearts = [];
+
 for (let i = 1; i <= availableLives; i++) {
   const heart = createLayout({
     elementname: "heart",
@@ -14,6 +16,9 @@ for (let i = 1; i <= availableLives; i++) {
     tag: "div",
     appendto: lives,
   });
+  hearts.push(heart);
 }
+
+hearts;
 
 export default lives;

@@ -501,6 +501,15 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+@keyframes noBeating {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes questionAnim {
   0% {
     text-shadow: 0 0 10px lightblue, 0 0 5px lightseagreen;
