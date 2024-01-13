@@ -49,11 +49,11 @@ function checkLetter(item, i) {
 
 let yep = false;
 
-function runYepAnim(flag) {
+function runYepAnim(flag, letter) {
   if (flag === true) {
-    yepAnim(true);
+    yepAnim(true, letter);
   } else {
-    yepAnim(false);
+    yepAnim(false, letter);
   }
 }
 
@@ -63,7 +63,7 @@ export function checkAnswerLetter(letter, word, elements) {
   console.log(letter, word, elements);
   if (word.includes(letter) === true) {
     yep = true;
-    runYepAnim(yep);
+    runYepAnim(yep, letter);
     console.log(yep);
     console.log("black");
     elements.filter(
@@ -71,7 +71,7 @@ export function checkAnswerLetter(letter, word, elements) {
     );
   } else {
     yep = false;
-    runYepAnim(yep);
+    runYepAnim(yep, letter);
     console.log("white");
   }
 }
