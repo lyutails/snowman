@@ -90,7 +90,6 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 .snowman_keyboard_body {
-  border: 1px solid antiquewhite;
   border-radius: 20px;
   padding: 20px;
   display: flex;
@@ -101,8 +100,13 @@ body::-webkit-scrollbar-thumb {
   max-width: 1000px;
   min-width: 300px;
   margin: 0 auto;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  background-color: rgba(245, 245, 245, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
 }
 .snowman_keyboard_letter {
   width: 8%;

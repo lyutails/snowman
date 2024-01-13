@@ -5,15 +5,19 @@ import lives from "./lives.js";
 import footer from "./footer.js";
 import word from "./answer.js";
 import question from "./question.js";
+import appendChildren from "./multiple_appendchild.js";
+import createLayout from "./create_layout.js";
+import { commonCSSClassPrefix } from "./constants.js";
 
 const body = document.body;
-const snowmanWrapper = document.createElement("div");
-snowmanWrapper.classList.add("snowman_wrapper");
+const snowmanWrapper = createLayout({
+  elementname: "snowmanWrapper",
+  tag: "div",
+  classname: `${commonCSSClassPrefix}_wrapper`,
+});
 body.appendChild(snowmanWrapper);
-snowmanWrapper.appendChild(title);
-snowmanWrapper.appendChild(snowman);
-snowmanWrapper.appendChild(lives);
-snowmanWrapper.appendChild(keyboard);
-snowmanWrapper.appendChild(word);
-snowmanWrapper.appendChild(question);
-snowmanWrapper.appendChild(footer);
+
+appendChildren({
+  elementAppendChildrenTo: snowmanWrapper,
+  children: [title, snowman, lives, keyboard, word, question, footer],
+});

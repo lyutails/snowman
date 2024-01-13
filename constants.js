@@ -27,6 +27,8 @@ export const letters = [
   "Z",
 ];
 
-export const commonCSSClassPrefix = "snowman_";
+export const commonCSSClassPrefix = "snowman";
 
 export const usedLetters = [];
+
+export const availableLives = 6;

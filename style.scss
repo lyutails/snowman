@@ -122,7 +122,6 @@ body::-webkit-scrollbar-thumb {
 
   &_keyboard_body {
     // background-color: rgb(255, 248, 239);
-    border: 1px solid antiquewhite;
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -134,7 +133,13 @@ body::-webkit-scrollbar-thumb {
     max-width: 1000px;
     min-width: 300px;
     margin: 0 auto;
-    backdrop-filter: blur(5px);
+    background-color: rgba(245, 245, 245, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.1);
   }
 
   &_keyboard_letter {

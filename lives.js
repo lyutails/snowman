@@ -1,10 +1,19 @@
-const lives = document.createElement('div');
-lives.classList.add('snowman_lives');
+import { availableLives, commonCSSClassPrefix } from "./constants.js";
+import createLayout from "./create_layout.js";
 
-for (let i = 0; i <= 5; i++) {
-  const heart = document.createElement("div");
-  heart.classList.add('snowman_heart');
-  lives.appendChild(heart);
+const lives = createLayout({
+  elementname: "lives",
+  classname: `${commonCSSClassPrefix}_lives`,
+  tag: "div",
+});
+
+for (let i = 1; i <= availableLives; i++) {
+  const heart = createLayout({
+    elementname: "heart",
+    classname: `${commonCSSClassPrefix}_heart`,
+    tag: "div",
+    appendto: lives,
+  });
 }
 
 export default lives;
