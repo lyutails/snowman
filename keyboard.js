@@ -4,6 +4,7 @@ import { commonCSSClassPrefix } from "./constants.js";
 import { usedLetters } from "./constants.js";
 import questions from "./questions.js";
 import { answerElements } from "./answer.js";
+import { yepAnim } from "./yep_anim.js";
 
 const keyboardBody = createLayout({
   elementname: "keyboardBody",
@@ -34,15 +35,11 @@ function checkLetter(item, i) {
       let letterTarget = event.currentTarget.textContent;
       console.log(letters.at(i));
       item.setAttribute("disabled", true);
-      // item.style.backgroundColor = "snow";
       usedLetters.push(letters.at(i));
       localStorage.setItem("letter", letters.at(i));
       setKeyBackground(letters.at(i), item);
-      // params.append(letters.at(i), "letter");
       updateQueryString(letters.at(i));
-      // window.location.href = url.toString();
       console.log(usedLetters);
-      // let letterTarget = localStorage.getItem('letter');
       console.log(letterTarget);
 
       checkAnswerLetter(letterTarget, answerArray, answerElements);
@@ -50,22 +47,32 @@ function checkLetter(item, i) {
   }
 }
 
-/* export function getAnswerElements(elements) {
-  return elements;
-} */
+let yep = false;
+
+function runYepAnim(flag) {
+  if (flag === true) {
+    yepAnim(true);
+  } else {
+    yepAnim(false);
+  }
+}
 
 export function checkAnswerLetter(letter, word, elements) {
-  //let letterTarget = usedLetters.pop();
-  let localLetter = localStorage.getItem("letter");
+  // let letterTarget = usedLetters.pop();
+  // let localLetter = localStorage.getItem("letter");
   console.log(letter, word, elements);
- /*  if (content === localLetter && localLetter !== null) {
-    letter.style.color = "black";
+  if (word.includes(letter) === true) {
+    yep = true;
+    runYepAnim(yep);
+    console.log(yep);
     console.log("black");
-  } */
-
-  if(word.includes(letter) === true) {
-    console.log('black');
-    elements.filter((item) => item.textContent === letter && (item.style.color = "black"))
+    elements.filter(
+      (item) => item.textContent === letter && (item.style.color = "black")
+    );
+  } else {
+    yep = false;
+    runYepAnim(yep);
+    console.log("white");
   }
 }
 

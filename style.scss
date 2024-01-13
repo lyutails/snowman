@@ -401,6 +401,17 @@ body::-webkit-scrollbar-thumb {
     filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.4));
     user-select: none;
   }
+
+  &_yep {
+    position: absolute;
+    background-color: snow;
+    font-size: 2rem;
+    visibility: hidden;
+
+    &.show {
+      visibility: hidden;
+    }
+  }
 }
 
 .snowman_songicon {
