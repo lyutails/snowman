@@ -331,7 +331,7 @@ body::-webkit-scrollbar-thumb {
     transform: translate(0px, 14px) rotate(0deg);
 
     &.anim {
-      animation-name: glove_anim;
+      animation-name: left_glove_anim;
       animation-duration: 1.8s;
       animation-iteration-count: 1;
       animation-timing-function: linear;
@@ -345,7 +345,14 @@ body::-webkit-scrollbar-thumb {
     background-size: contain;
     width: 50px;
     aspect-ratio: 1 / 1;
-    transform: translate(190px, 16px);
+    transform: translate(190px, 16px) rotate(0deg);
+
+    &.anim {
+      animation-name: right_glove_anim;
+      animation-duration: 1.8s;
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+    }
   }
 
   &_lives {
@@ -709,7 +716,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-@keyframes glove_anim {
+@keyframes left_glove_anim {
   0% {
     transform: translate(0px, 14px) rotate(0deg);
   }
@@ -751,5 +758,50 @@ body::-webkit-scrollbar-thumb {
   }
   100% {
     transform: translate(0px, 14px) rotate(0deg);
+  }
+}
+
+@keyframes right_glove_anim {
+  0% {
+    transform: translate(190px, 16px) rotate(0deg);
+  }
+  10% {
+    transform: translate(190px, 16px) rotate(-20deg);
+  }
+  15% {
+    transform: translate(190px, 16px) rotate(20deg);
+  }
+  25% {
+    transform: translate(190px, 16px) rotate(-20deg);
+  }
+  30% {
+    transform: translate(190px, 16px) rotate(20deg);
+  }
+  40% {
+    transform: translate(190px, 16px) rotate(-20deg);
+  }
+  45% {
+    transform: translate(190px, 16px) rotate(20deg);
+  }
+  55% {
+    transform: translate(190px, 16px) rotate(-20deg);
+  }
+  60% {
+    transform: translate(190px, 16px) rotate(20deg);
+  }
+  70% {
+    transform: translate(190px, 16px) rotate(-20deg);
+  }
+  75% {
+    transform: translate(190px, 16px) rotate(20deg);
+  }
+  85% {
+    transform: translate(190px, 16px) rotate(-20deg);
+  }
+  90% {
+    transform: translate(190px, 16px) rotate(20deg);
+  }
+  100% {
+    transform: translate(190px, 16px) rotate(0deg);
   }
 }

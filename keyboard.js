@@ -78,8 +78,10 @@ export function checkAnswerLetter(letter, word, elements) {
       (item) => item.textContent === letter && (item.style.color = "black")
     );
     correctCounter++;
-    leftGlove !== undefined && gloveAnim(leftGlove);
+    gloveAnim(leftGlove);
     removeClassOnAnimEnd(leftGlove);
+    gloveAnim(rightGlove);
+    removeClassOnAnimEnd(rightGlove);
   } else {
     yep = false;
     runYepAnim(yep, letter);

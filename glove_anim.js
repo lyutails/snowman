@@ -1,7 +1,7 @@
 import { correctCounter } from "./keyboard.js";
 
 export function gloveAnim(glove) {
-  if (glove !== undefined && correctCounter === 1) {
+  if (correctCounter === 1) {
     glove.classList.add("anim");
   }
   if (correctCounter === 2) {
