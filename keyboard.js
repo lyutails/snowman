@@ -36,17 +36,12 @@ const answerArray = questions[0].answer.toUpperCase().split("");
 function checkLetter(item, i) {
   if (item instanceof HTMLElement) {
     item.onclick = function (event) {
-      console.log(event.currentTarget.textContent);
       let letterTarget = event.currentTarget.textContent;
-      console.log(letters.at(i));
       item.setAttribute("disabled", true);
       usedLetters.push(letters.at(i));
       localStorage.setItem("letter", letters.at(i));
       setKeyBackground(letters.at(i), item);
       updateQueryString(letters.at(i));
-      console.log(usedLetters);
-      console.log(letterTarget);
-
       checkAnswerLetter(letterTarget, answerArray, answerElements);
     };
   }
@@ -68,12 +63,9 @@ export let correctCounter = 0;
 export function checkAnswerLetter(letter, word, elements) {
   // let letterTarget = usedLetters.pop();
   // let localLetter = localStorage.getItem("letter");
-  console.log(letter, word, elements);
   if (word.includes(letter) === true) {
     yep = true;
     runYepAnim(yep, letter);
-    console.log(yep);
-    console.log("black");
     elements.filter(
       (item) => item.textContent === letter && (item.style.color = "black")
     );
@@ -85,10 +77,10 @@ export function checkAnswerLetter(letter, word, elements) {
   } else {
     yep = false;
     runYepAnim(yep, letter);
-    console.log("white");
     heartAnim(hearts);
     wrongCounter++;
     snowmanIncorrectAnswerAnim();
+    wrongCounter === 6 && callPlayAgainModal();
   }
 }
 
@@ -119,10 +111,8 @@ function setKeyBackground(keyValue, element) {
 }
 
 document.addEventListener("keydown", function (event) {
-  console.log(event.key.toUpperCase());
   usedLetters.push(event.key.toUpperCase());
   updateQueryString(event.key.toUpperCase());
-  console.log(usedLetters);
 });
 
 export default keyboard;

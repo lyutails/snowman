@@ -22,7 +22,6 @@ answerArray.forEach((letter, i) => {
   letter.style.color = "transparent";
   const content = answerArray.at(i);
   checkIfAnswerContainsPressedLettter(answerArray, letter);
-  console.log(content, letter);
   word.appendChild(letter);
   answerElements.push(letter);
 });

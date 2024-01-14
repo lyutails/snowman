@@ -12,7 +12,6 @@ const restartButton = createLayout({
 
 restartButton.addEventListener("click", () => {
   ifRestart = true;
-  console.log(ifRestart);
 });
 
 export default restartButton;
