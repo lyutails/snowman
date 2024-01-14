@@ -88,7 +88,7 @@ export function checkAnswerLetter(letter, word, elements) {
     console.log("white");
     heartAnim(hearts);
     wrongCounter++;
-    snowmanIncorrectAnswerAnim(snowman);
+    snowmanIncorrectAnswerAnim();
   }
 }
 

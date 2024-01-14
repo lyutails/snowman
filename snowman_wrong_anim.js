@@ -1,22 +1,23 @@
 import { wrongCounter } from "./keyboard.js";
+import { buttonBottom, buttonTop, hat, leftGlove, rightGlove, scarf } from "./snowman.js";
 
-export function snowmanIncorrectAnswerAnim(lalala) {
+export function snowmanIncorrectAnswerAnim() {
   if (wrongCounter === 1) {
-    lalala.style.backgroundImage = `url('./assets/pics/snowman/snowman_hat.png')`;
+    hat.style.backgroundImage = `none`;
   }
   if (wrongCounter === 2) {
-    lalala.style.backgroundImage = `url('./assets/pics/snowman/snowman_hat_buttonb.png')`;
+    buttonBottom.style.backgroundImage = `none`;
   }
   if (wrongCounter === 3) {
-    lalala.style.backgroundImage = `url('./assets/pics/snowman/snowman_hat_buttont.png')`;
+    buttonTop.style.backgroundImage = `none`;
   }
   if (wrongCounter === 4) {
-    lalala.style.backgroundImage = `url('./assets/pics/snowman/snowman_buttons_scarf.png')`;
+    scarf.style.backgroundImage = `none`;
   }
   if (wrongCounter === 5) {
-    lalala.style.backgroundImage = `url('./assets/pics/snowman/snowman_left_glove.png')`;
+    leftGlove.style.backgroundImage = `none`;
   }
   if (wrongCounter === 6) {
-    lalala.style.backgroundImage = `url('./assets/pics/snowman/snowman_nude.png')`;
+    rightGlove.style.backgroundImage = `none`;
   }
 }
