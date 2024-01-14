@@ -53,6 +53,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
 // font-family: 'Titan One', sans-serif;
 
+$overlay: rgba(0, 0, 0, 0.4);
+
 html {
   height: 100%;
   scroll-behavior: smooth;
@@ -593,6 +595,79 @@ body::-webkit-scrollbar-thumb {
     accent-color: #f55050;
 } */
 
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: $overlay;
+  z-index: 100;
+}
+
+.popup_play_again {
+  position: absolute;
+  // transform: translate(50%, 0%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("./assets/pics/snowflakes_background_01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 60vw;
+  aspect-ratio: 1 / 0.7;
+  border-radius: 20px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.popup {
+  &_text {
+    color: snow;
+    font-size: 3rem;
+    font-family: "Cookie", cursive;
+    text-shadow: 0 0 10px coral, 0 0 20px coral;
+    text-align: center;
+  }
+
+  &_button {
+    color: snow;
+    font-size: 3rem;
+    font-family: "Cookie", cursive;
+    text-shadow: 0 0 10px coral, 0 0 20px coral;
+    text-align: center;
+    animation-name: play_again_anim;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.popup_cross {
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  background-image: url("./assets/icons/snowflakes/snowflake-1.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(40px, -40px) rotate(0deg);
+  transition: all 0.8s ease-in-out;
+  filter: drop-shadow(0 0 2px snow) drop-shadow(0 0 1px snow);
+
+  &:hover {
+    cursor: pointer;
+    transform: translate(40px, -40px) rotate(360deg);
+  }
+}
+
 @keyframes heartAnim {
   0% {
     transform: scale(1);
@@ -803,5 +878,18 @@ body::-webkit-scrollbar-thumb {
   }
   100% {
     transform: translate(190px, 16px) rotate(0deg);
+  }
+}
+
+@keyframes play_again_anim {
+  0% {
+    text-shadow: 0 0 5px coral, 0 0 10px coral, 0 0 20px coral, 0 0 30px coral;
+  }
+  50% {
+    text-shadow: 0 0 5px aquamarine, 0 0 10px aquamarine, 0 0 20px aquamarine,
+      0 0 30px aquamarine;
+  }
+  100% {
+    text-shadow: 0 0 5px coral, 0 0 10px coral, 0 0 20px coral, 0 0 30px coral;
   }
 }

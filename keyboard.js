@@ -8,8 +8,9 @@ import { yepAnim } from "./yep_anim.js";
 import { heartAnim } from "./heart_anim.js";
 import { hearts } from "./lives.js";
 import { snowmanIncorrectAnswerAnim } from "./snowman_wrong_anim.js";
-import snowman, { leftGlove, rightGlove } from "./snowman.js";
+import { leftGlove, rightGlove } from "./snowman.js";
 import { gloveAnim, removeClassOnAnimEnd } from "./glove_anim.js";
+import { callPlayAgainModal, popupText } from "./popup_play_again.js";
 
 const keyboardBody = createLayout({
   elementname: "keyboardBody",
@@ -74,6 +75,8 @@ export function checkAnswerLetter(letter, word, elements) {
     removeClassOnAnimEnd(leftGlove);
     gloveAnim(rightGlove);
     removeClassOnAnimEnd(rightGlove);
+    elements.map((item) => item.style.color = "black" && callPlayAgainModal());
+    popupText.textContent = "not this time, but you can";
   } else {
     yep = false;
     runYepAnim(yep, letter);
