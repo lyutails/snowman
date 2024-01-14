@@ -22,9 +22,16 @@ const popupRestartButton = createLayout({
   appendto: popupPlayAgain,
 });
 
-const crossClosePopup = createLayout({
+export const crossClosePopup = createLayout({
   elementname: "crossClosePopup",
   classname: "popup_cross",
+  tag: "div",
+  appendto: popupPlayAgain,
+});
+
+const mulledWine = createLayout({
+  elementname: "mulledWine",
+  classname: "mulled_wine",
   tag: "div",
   appendto: popupPlayAgain,
 });
@@ -41,3 +48,13 @@ export function callPlayAgainModal() {
     children: [popupPlayAgain, overlay],
   });
 }
+
+function closePopup(element) {
+  element.addEventListener("click", () => {
+    overlay.style.display = "none";
+    popupPlayAgain.style.display = "none";
+  });
+}
+
+closePopup(popupPlayAgain);
+closePopup(overlay);

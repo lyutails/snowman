@@ -601,6 +601,10 @@ body::-webkit-scrollbar-thumb {
   height: 100vh;
   background-color: $overlay;
   z-index: 100;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .popup_play_again {
@@ -626,7 +630,7 @@ body::-webkit-scrollbar-thumb {
 .popup {
   &_text {
     color: snow;
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-family: "Cookie", cursive;
     text-shadow: 0 0 10px coral, 0 0 20px coral;
     text-align: center;
@@ -634,7 +638,7 @@ body::-webkit-scrollbar-thumb {
 
   &_button {
     color: snow;
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-family: "Cookie", cursive;
     text-shadow: 0 0 10px coral, 0 0 20px coral;
     text-align: center;
@@ -666,6 +670,15 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
     transform: translate(40px, -40px) rotate(360deg);
   }
+}
+
+.mulled_wine {
+  width: 25%;
+  aspect-ratio: 1 / 1;
+  background-image: url("./assets/pics/wine.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: 20px;
 }
 
 @keyframes heartAnim {

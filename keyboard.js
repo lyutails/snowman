@@ -67,16 +67,15 @@ export function checkAnswerLetter(letter, word, elements) {
   if (word.includes(letter) === true) {
     yep = true;
     runYepAnim(yep, letter);
-    elements.filter(
-      (item) => item.textContent === letter && (item.style.color = "black")
-    );
-    correctCounter++;
+    elements.filter((item) => {
+      item.textContent === letter && (item.style.color = "black") && correctCounter++;
+    });
     gloveAnim(leftGlove);
     removeClassOnAnimEnd(leftGlove);
     gloveAnim(rightGlove);
     removeClassOnAnimEnd(rightGlove);
-    elements.map((item) => item.style.color = "black" && callPlayAgainModal());
-    popupText.textContent = "not this time, but you can";
+    correctCounter === answerArray.length && callPlayAgainModal();
+    popupText.textContent = `you win \\o/ the found answer is ${answer}`;
   } else {
     yep = false;
     runYepAnim(yep, letter);
@@ -84,6 +83,8 @@ export function checkAnswerLetter(letter, word, elements) {
     wrongCounter++;
     snowmanIncorrectAnswerAnim();
     wrongCounter === 6 && callPlayAgainModal();
+    wrongCounter === 6 &&
+      (popupText.textContent = "not this time, but you can");
   }
 }
 
