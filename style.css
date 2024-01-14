@@ -189,7 +189,7 @@ body::-webkit-scrollbar-thumb {
   width: 50%;
 }
 .snowman_pushishka {
-  width: 10%;
+  width: 8%;
   aspect-ratio: 1/1;
   background-image: url("./assets/pics/pushishka_01.png");
   background-repeat: no-repeat;
@@ -220,17 +220,77 @@ body::-webkit-scrollbar-thumb {
   border: 1px solid mediumvioletred;
 }
 .snowman_snowman {
-  width: 30%;
+  width: 250px;
   aspect-ratio: 1/1;
-  background-image: url("./assets/pics/snowman/snowman_full.png");
+  min-height: 250px;
+  background-image: url("./assets/pics/snowman/snowman_nude.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 30px;
-  max-width: 380px;
-  min-width: 150px;
   background-position: center center;
+  position: relative;
+}
+.snowman_hat {
+  position: absolute;
+  background-image: url("./assets/pics/snowman/hat.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100px;
+  aspect-ratio: 1/1;
+  transform: translate(75px, -82px);
+}
+.snowman_scarf {
+  position: absolute;
+  background-image: url("./assets/pics/snowman/scarf.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 98px;
+  aspect-ratio: 1/1;
+  transform: translate(73px, 32px);
+}
+.snowman_button_top {
+  position: absolute;
+  background-image: url("./assets/pics/snowman/button.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 15px;
+  aspect-ratio: 1/1;
+  transform: translate(102px, 78px);
+}
+.snowman_button_bottom {
+  position: absolute;
+  background-image: url("./assets/pics/snowman/button.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 15px;
+  aspect-ratio: 1/1;
+  transform: translate(100px, 100px) rotate(20deg);
+}
+.snowman_left_glove {
+  position: absolute;
+  background-image: url("./assets/pics/snowman/glove_left.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 50px;
+  aspect-ratio: 1/1;
+  transform: translate(0px, 14px) rotate(0deg);
+}
+.snowman_left_glove.anim {
+  animation-name: glove_anim;
+  animation-duration: 1.8s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+.snowman_right_glove {
+  position: absolute;
+  background-image: url("./assets/pics/snowman/glove_right.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 50px;
+  aspect-ratio: 1/1;
+  transform: translate(190px, 16px);
 }
 .snowman_lives {
   width: 50vw;
@@ -344,7 +404,7 @@ body::-webkit-scrollbar-thumb {
 }
 .snowman_yep {
   position: relative;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   visibility: hidden;
   right: 0;
   text-align: center;
@@ -423,6 +483,33 @@ body::-webkit-scrollbar-thumb {
   background-size: contain;
 }
 
+.snowman_volume_control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  width: 8px;
+  height: 80px;
+  writing-mode: vertical-lr;
+  border-radius: 5px;
+}
+
+.snowman_volume_control::-webkit-slider-thumb {
+  writing-mode: vertical-lr;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  background-image: url("./assets/icons/snowflakes/snowflake-6.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* input[type="range"] {
+    accent-color: #f55050;
+} */
 @keyframes heartAnim {
   0% {
     transform: scale(1);
@@ -539,30 +626,47 @@ body::-webkit-scrollbar-thumb {
     background-image: url("./assets/pics/background/snowman_background_01.PNG");
   }
 }
-.snowman_volume_control {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-  width: 8px;
-  height: 80px;
-  writing-mode: vertical-lr;
-  border-radius: 5px;
-}
-
-.snowman_volume_control::-webkit-slider-thumb {
-  writing-mode: vertical-lr;
-  height: 30px;
-  width: 30px;
-  border-radius: 5px;
-  background-image: url("./assets/icons/snowflakes/snowflake-6.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  cursor: pointer;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-/* input[type="range"] {
-    accent-color: #f55050;
-} *//*# sourceMappingURL=style.css.map */
+@keyframes glove_anim {
+  0% {
+    transform: translate(0px, 14px) rotate(0deg);
+  }
+  10% {
+    transform: translate(0px, 14px) rotate(20deg);
+  }
+  15% {
+    transform: translate(0px, 14px) rotate(-20deg);
+  }
+  25% {
+    transform: translate(0px, 14px) rotate(20deg);
+  }
+  30% {
+    transform: translate(0px, 14px) rotate(-20deg);
+  }
+  40% {
+    transform: translate(0px, 14px) rotate(20deg);
+  }
+  45% {
+    transform: translate(0px, 14px) rotate(-20deg);
+  }
+  55% {
+    transform: translate(0px, 14px) rotate(20deg);
+  }
+  60% {
+    transform: translate(0px, 14px) rotate(-20deg);
+  }
+  70% {
+    transform: translate(0px, 14px) rotate(20deg);
+  }
+  75% {
+    transform: translate(0px, 14px) rotate(-20deg);
+  }
+  85% {
+    transform: translate(0px, 14px) rotate(20deg);
+  }
+  90% {
+    transform: translate(0px, 14px) rotate(-20deg);
+  }
+  100% {
+    transform: translate(0px, 14px) rotate(0deg);
+  }
+}/*# sourceMappingURL=style.css.map */

@@ -7,6 +7,9 @@ import { answerElements } from "./answer.js";
 import { yepAnim } from "./yep_anim.js";
 import { heartAnim } from "./heart_anim.js";
 import { hearts } from "./lives.js";
+import { snowmanIncorrectAnswerAnim } from "./snowman_wrong_anim.js";
+import snowman, { leftGlove, rightGlove } from "./snowman.js";
+import { gloveAnim } from "./glove_anim.js";
 
 const keyboardBody = createLayout({
   elementname: "keyboardBody",
@@ -59,6 +62,9 @@ function runYepAnim(flag, letter) {
   }
 }
 
+export let wrongCounter = 0;
+export let correctCounter = 0;
+
 export function checkAnswerLetter(letter, word, elements) {
   // let letterTarget = usedLetters.pop();
   // let localLetter = localStorage.getItem("letter");
@@ -71,11 +77,15 @@ export function checkAnswerLetter(letter, word, elements) {
     elements.filter(
       (item) => item.textContent === letter && (item.style.color = "black")
     );
+    correctCounter++;
+    gloveAnim(leftGlove)
   } else {
     yep = false;
     runYepAnim(yep, letter);
     console.log("white");
     heartAnim(hearts);
+    wrongCounter++;
+    snowmanIncorrectAnswerAnim(snowman);
   }
 }
 
