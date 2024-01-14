@@ -56,5 +56,5 @@ function closePopup(element) {
   });
 }
 
-closePopup(popupPlayAgain);
+closePopup(crossClosePopup);
 closePopup(overlay);
