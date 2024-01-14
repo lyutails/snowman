@@ -9,7 +9,7 @@ import { heartAnim } from "./heart_anim.js";
 import { hearts } from "./lives.js";
 import { snowmanIncorrectAnswerAnim } from "./snowman_wrong_anim.js";
 import snowman, { leftGlove, rightGlove } from "./snowman.js";
-import { gloveAnim } from "./glove_anim.js";
+import { gloveAnim, removeClassOnAnimEnd } from "./glove_anim.js";
 
 const keyboardBody = createLayout({
   elementname: "keyboardBody",
@@ -78,7 +78,8 @@ export function checkAnswerLetter(letter, word, elements) {
       (item) => item.textContent === letter && (item.style.color = "black")
     );
     correctCounter++;
-    gloveAnim(leftGlove)
+    leftGlove !== undefined && gloveAnim(leftGlove);
+    removeClassOnAnimEnd(leftGlove);
   } else {
     yep = false;
     runYepAnim(yep, letter);

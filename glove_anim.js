@@ -1,22 +1,28 @@
 import { correctCounter } from "./keyboard.js";
 
-export function gloveAnim(lalala) {
-  if (correctCounter === 1) {
-    lalala.classlist.add('anim');
+export function gloveAnim(glove) {
+  if (glove !== undefined && correctCounter === 1) {
+    glove.classList.add("anim");
   }
   if (correctCounter === 2) {
-    lalala.classlist.add('anim');
+    glove.classList.add("anim");
   }
   if (correctCounter === 3) {
-    lalala.classlist.add('anim');
+    glove.classList.add("anim");
   }
   if (correctCounter === 4) {
-    lalala.classlist.add('anim');
+    glove.classList.add("anim");
   }
   if (correctCounter === 5) {
-    lalala.classlist.add('anim');
+    glove.classList.add("anim");
   }
   if (correctCounter === 6) {
-    lalala.classlist.add('anim');
+    glove.classList.add("anim");
   }
+}
+
+export function removeClassOnAnimEnd(glove) {
+  glove.onanimationend = () => {
+    glove.classList.remove("anim");
+  };
 }
