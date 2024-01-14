@@ -11,6 +11,7 @@ import { snowmanIncorrectAnswerAnim } from "./snowman_wrong_anim.js";
 import { leftGlove, rightGlove } from "./snowman.js";
 import { gloveAnim, removeClassOnAnimEnd } from "./glove_anim.js";
 import { callPlayAgainModal, popupText } from "./popup_play_again.js";
+import questionNumber from "./pick_random_question.js";
 
 const keyboardBody = createLayout({
   elementname: "keyboardBody",
@@ -31,8 +32,8 @@ function keyboardLetters() {
 }
 keyboardLetters();
 
-const answer = questions[0].answer;
-const answerArray = questions[0].answer.toUpperCase().split("");
+const answerArray = questions[questionNumber].answer.toUpperCase().split("");
+const answer = questions[questionNumber].answer;
 
 function checkLetter(item, i) {
   if (item instanceof HTMLElement) {
@@ -68,7 +69,9 @@ export function checkAnswerLetter(letter, word, elements) {
     yep = true;
     runYepAnim(yep, letter);
     elements.filter((item) => {
-      item.textContent === letter && (item.style.color = "black") && correctCounter++;
+      item.textContent === letter &&
+        (item.style.color = "black") &&
+        correctCounter++;
     });
     gloveAnim(leftGlove);
     removeClassOnAnimEnd(leftGlove);

@@ -2,6 +2,7 @@ import questions from "./questions.js";
 import checkIfAnswerContainsPressedLettter from "./check_answer_letter.js";
 import createLayout from "./create_layout.js";
 import { commonCSSClassPrefix } from "./constants.js";
+import questionNumber from "./pick_random_question.js";
 
 const word = createLayout({
   tag: "div",
@@ -9,8 +10,9 @@ const word = createLayout({
   elementname: "word",
 });
 
-const answerArray = questions[0].answer.toUpperCase().split("");
-const answer = questions[0].answer;
+console.log(questionNumber);
+const answerArray = questions[questionNumber].answer.toUpperCase().split("");
+const answer = questions[questionNumber].answer;
 localStorage.setItem("answer", answer);
 
 export let answerElements = [];
@@ -27,7 +29,5 @@ answerArray.forEach((letter, i) => {
 });
 
 answerElements;
-
-// getAnswerElements(answerElements);
 
 export default word;
