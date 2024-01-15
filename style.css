@@ -279,7 +279,7 @@ body::-webkit-scrollbar-thumb {
 }
 .snowman_left_glove.anim {
   animation-name: left_glove_anim;
-  animation-duration: 1.8s;
+  animation-duration: 1.4s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
 }
@@ -294,7 +294,7 @@ body::-webkit-scrollbar-thumb {
 }
 .snowman_right_glove.anim {
   animation-name: right_glove_anim;
-  animation-duration: 1.8s;
+  animation-duration: 1.4s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
 }
