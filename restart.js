@@ -7,11 +7,12 @@ const restartButton = createLayout({
   elementname: "restartButton",
   classname: `${commonCSSClassPrefix}_restart`,
   tag: "button",
-  textcontent: "restart"
+  textcontent: "restart",
 });
 
 restartButton.addEventListener("click", () => {
   ifRestart = true;
+  window.history.pushState({}, '', window.location.pathname);
 });
 
 export default restartButton;

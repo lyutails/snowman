@@ -60,8 +60,8 @@ const questions = [
   {
     id: 12,
     question:
-      "Dobby made Harry a pair of socks for Christmas in year 4. What were the patterns?",
-    answer: "broomsticks and snitches",
+      "Dobby made Harry a pair of socks for Christmas in year 4. What was one of the patterns?",
+    answer: "snitch",
   },
 ];
 

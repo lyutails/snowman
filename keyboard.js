@@ -41,9 +41,7 @@ function checkLetter(item, i) {
       let letterTarget = event.currentTarget.textContent;
       item.setAttribute("disabled", true);
       usedLetters.push(letters.at(i));
-      localStorage.setItem("letter", letters.at(i));
       setKeyBackground(letters.at(i), item);
-      updateQueryString(letters.at(i));
       checkAnswerLetter(letterTarget, answerArray, answerElements);
     };
   }
@@ -64,7 +62,6 @@ export let correctCounter = 0;
 
 export function checkAnswerLetter(letter, word, elements) {
   // let letterTarget = usedLetters.pop();
-  // let localLetter = localStorage.getItem("letter");
   if (word.includes(letter) === true) {
     yep = true;
     runYepAnim(yep, letter);
@@ -104,12 +101,6 @@ const keyboard = createLayout({
   tag: "div",
   appendchild: keyboardWrapper,
 });
-
-function updateQueryString(value) {
-  const url = new URL(window.location);
-  url.searchParams.set("key", value);
-  window.history.pushState("", "", url.toString());
-}
 
 function setKeyBackground(keyValue, element) {
   if (usedLetters.includes(keyValue) === true) {
