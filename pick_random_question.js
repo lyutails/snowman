@@ -15,9 +15,10 @@ export function pickRandomQuestion(questions) {
   if (!window.location.search) {
     questionNumber = Math.floor(Math.random() * questions.length);
   } else {
-    questionNumber = Math.floor(Math.random() * questions.length);
-    url.searchParams.get(`q${questionNumber}`) === `${questionNumber}` ?
-      (questionNumber = Math.floor(Math.random() * questions.length)) : questionNumber;
+    let questionRandom = Math.floor(Math.random() * questions.length);
+    url.searchParams.get(`q${questionRandom}`) === `${questionRandom}`
+      ? (questionRandom = Math.floor(Math.random() * questions.length))
+      : (questionNumber = questionRandom);
   }
   console.log(questionNumber);
 }
