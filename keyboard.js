@@ -12,12 +12,15 @@ import { leftGlove, rightGlove } from "./snowman.js";
 import { gloveAnim, removeClassOnAnimEnd } from "./glove_anim.js";
 import { callPlayAgainModal, popupText } from "./popup_play_again.js";
 import questionNumber from "./pick_random_question.js";
+import { isRestart } from "./restart.js";
 
 const keyboardBody = createLayout({
   elementname: "keyboardBody",
   classname: `${commonCSSClassPrefix}_keyboard_body`,
   tag: "div",
 });
+
+export let keys = [];
 
 function keyboardLetters() {
   letters.forEach((item, i) => {
@@ -28,9 +31,12 @@ function keyboardLetters() {
     });
     keyboardBody.appendChild(item);
     checkLetter(item, i);
+    keys.push(item);
   });
 }
 keyboardLetters();
+
+keys;
 
 const answerArray = questions[questionNumber].answer.toUpperCase().split("");
 const answer = questions[questionNumber].answer;

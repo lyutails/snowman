@@ -1,7 +1,8 @@
 import { commonCSSClassPrefix } from "./constants.js";
 import createLayout from "./create_layout.js";
+import { keys } from "./keyboard.js";
 
-let ifRestart = false;
+export let isRestart = false;
 
 const restartButton = createLayout({
   elementname: "restartButton",
@@ -11,8 +12,16 @@ const restartButton = createLayout({
 });
 
 restartButton.addEventListener("click", () => {
-  ifRestart = true;
-  window.history.pushState({}, '', window.location.pathname);
+  isRestart = !isRestart;
+
+  window.history.pushState({}, "", window.location.pathname);
+
+  keys.forEach((key) => {
+    key.removeAttribute("disabled");
+    key.style.backgroundColor = "lightgreen";
+  });
 });
+
+console.log(isRestart);
 
 export default restartButton;
