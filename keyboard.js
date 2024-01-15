@@ -110,7 +110,6 @@ function setKeyBackground(keyValue, element) {
 
 document.addEventListener("keydown", function (event) {
   usedLetters.push(event.key.toUpperCase());
-  updateQueryString(event.key.toUpperCase());
 });
 
 export default keyboard;
