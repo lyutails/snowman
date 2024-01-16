@@ -61,8 +61,8 @@ export function callPlayAgainModal() {
 
 function closePopup(element) {
   element.addEventListener("click", () => {
-    overlay.style.display = "none";
-    popupPlayAgain.style.display = "none";
+    overlay.style.visibility = "hidden";
+    popupPlayAgain.style.visibility = "hidden";
   });
 }
 
@@ -79,7 +79,7 @@ popupRestartButton.addEventListener("click", () => {
     key.style.backgroundColor = "lightgreen";
   });
   checkAnswerNumber(questions);
-  createAnswer(localStorage.getItem("que"));
+  createAnswer(localStorage.getItem("que_lyu"));
   repairHeart(hearts);
   returnClothes();
   overlay.style.visibility = "hidden";

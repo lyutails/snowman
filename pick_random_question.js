@@ -25,7 +25,7 @@ export function checkAnswerNumber(questions) {
   pickRandomQuestion(questions);
   question.textContent = questions[questionNumber].question;
   updateQueryString(questionNumber);
-  localStorage.setItem("que", questionNumber);
+  localStorage.setItem("que_lyu", questionNumber);
 }
 
 checkAnswerNumber(questions);

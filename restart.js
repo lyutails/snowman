@@ -37,7 +37,7 @@ restartButton.addEventListener("click", () => {
     key.style.backgroundColor = "lightgreen";
   });
   checkAnswerNumber(questions);
-  createAnswer(localStorage.getItem("que"));
+  createAnswer(localStorage.getItem("que_lyu"));
   repairHeart(hearts);
   returnClothes();
 });

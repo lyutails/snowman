@@ -63,10 +63,10 @@ function checkLetter(item, i) {
         checkAnswerLetter(letterTarget, answerArray, answerElements);
       }
       if (isRestart === true) {
-        const answerArray = questions[localStorage.getItem("que")].answer
+        const answerArray = questions[localStorage.getItem("que_lyu")].answer
           .toUpperCase()
           .split("");
-        const answer = questions[localStorage.getItem("que")].answer;
+        const answer = questions[localStorage.getItem("que_lyu")].answer;
         checkAnswerLetter(letterTarget, answerArray, answerElements);
       }
     };
@@ -106,10 +106,10 @@ export function checkAnswerLetter(letter, word, elements) {
       popupText.textContent = `you win \\o/ the found answer is ${answer}`;
     }
     if (isRestart === true) {
-      const answerArray = questions[localStorage.getItem("que")].answer
+      const answerArray = questions[localStorage.getItem("que_lyu")].answer
         .toUpperCase()
         .split("");
-      const answer = questions[localStorage.getItem("que")].answer;
+      const answer = questions[localStorage.getItem("que_lyu")].answer;
       correctCounter === answerArray.length && callPlayAgainModal();
       popupText.textContent = `you win \\o/ the found answer is ${answer}`;
     }
