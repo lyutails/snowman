@@ -597,11 +597,17 @@ body::-webkit-scrollbar-thumb {
 
 .mulled_wine {
   width: 25%;
+  min-width: 100px;
   aspect-ratio: 1/1;
   background-image: url("./assets/pics/wine.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin-top: 20px;
+  min-width: 100px;
+}
+
+.snowman_answer_letter {
+  font-size: 1rem;
 }
 
 @keyframes heartAnim {
@@ -927,6 +933,118 @@ body::-webkit-scrollbar-thumb {
     width: 40px;
     aspect-ratio: 1/1;
     transform: translate(154px, 11px) rotate(0deg);
+  }
+  @keyframes left_glove_anim {
+    0% {
+      transform: translate(0px, 12px) rotate(0deg);
+    }
+    10% {
+      transform: translate(0px, 12px) rotate(20deg);
+    }
+    15% {
+      transform: translate(0px, 12px) rotate(-20deg);
+    }
+    25% {
+      transform: translate(0px, 12px) rotate(20deg);
+    }
+    30% {
+      transform: translate(0px, 12px) rotate(-20deg);
+    }
+    40% {
+      transform: translate(0px, 12px) rotate(20deg);
+    }
+    45% {
+      transform: translate(0px, 12px) rotate(-20deg);
+    }
+    55% {
+      transform: translate(0px, 12px) rotate(20deg);
+    }
+    60% {
+      transform: translate(0px, 12px) rotate(-20deg);
+    }
+    70% {
+      transform: translate(0px, 12px) rotate(20deg);
+    }
+    75% {
+      transform: translate(0px, 12px) rotate(-20deg);
+    }
+    85% {
+      transform: translate(0px, 12px) rotate(20deg);
+    }
+    90% {
+      transform: translate(0px, 12px) rotate(-20deg);
+    }
+    100% {
+      transform: translate(0px, 12px) rotate(0deg);
+    }
+  }
+  @keyframes right_glove_anim {
+    0% {
+      transform: translate(154px, 11px) rotate(0deg);
+    }
+    10% {
+      transform: translate(154px, 11px) rotate(-20deg);
+    }
+    15% {
+      transform: translate(154px, 11px) rotate(20deg);
+    }
+    25% {
+      transform: translate(154px, 11px) rotate(-20deg);
+    }
+    30% {
+      transform: translate(154px, 11px) rotate(20deg);
+    }
+    40% {
+      transform: translate(154px, 11px) rotate(-20deg);
+    }
+    45% {
+      transform: translate(154px, 11px) rotate(20deg);
+    }
+    55% {
+      transform: translate(154px, 11px) rotate(-20deg);
+    }
+    60% {
+      transform: translate(154px, 11px) rotate(20deg);
+    }
+    70% {
+      transform: translate(154px, 11px) rotate(-20deg);
+    }
+    75% {
+      transform: translate(154px, 11px) rotate(20deg);
+    }
+    85% {
+      transform: translate(154px, 11px) rotate(-20deg);
+    }
+    90% {
+      transform: translate(154px, 11px) rotate(20deg);
+    }
+    100% {
+      transform: translate(154px, 11px) rotate(0deg);
+    }
+  }
+  .snowman_yep {
+    position: relative;
+    font-size: 0.5rem;
+    width: 50%;
+    aspect-ratio: 1/0.65;
+  }
+  .snowman_yep::after {
+    content: "";
+    background-image: url("./assets/icons/cloud.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.4;
+  }
+  .popup_text {
+    font-size: 1.8rem;
+  }
+  .popup_button {
+    font-size: 1.8rem;
   }
 }
 @media screen and (min-width: 1500px) and (max-width: 2800px) {
