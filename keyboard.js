@@ -48,6 +48,12 @@ keyboardLetters();
 
 keys;
 
+function disableAllButtons() {
+  keys.forEach((key) => {
+    key.setAttribute("disabled", true);
+  });
+}
+
 function checkLetter(item, i) {
   if (item instanceof HTMLElement) {
     item.onclick = function (event) {
@@ -112,6 +118,7 @@ export function checkAnswerLetter(letter, word, elements) {
       const answer = questions[localStorage.getItem("que_lyu")].answer;
       correctCounter === answerArray.length && callPlayAgainModal();
       popupText.textContent = `you win \\o/ the found answer is ${answer}`;
+      correctCounter === answerArray.length && disableAllButtons();
     }
   } else {
     yep = false;
@@ -122,6 +129,7 @@ export function checkAnswerLetter(letter, word, elements) {
     wrongCounter === 6 && callPlayAgainModal();
     wrongCounter === 6 &&
       (popupText.textContent = "not this time, but you can");
+    wrongCounter === 6 && disableAllButtons();
   }
 }
 
