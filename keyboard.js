@@ -127,8 +127,16 @@ export function checkAnswerLetter(letter, word, elements) {
     heartAnim(hearts, wrongCounter);
     snowmanIncorrectAnswerAnim();
     wrongCounter === 6 && callPlayAgainModal();
-    wrongCounter === 6 &&
-      (popupText.textContent = "not this time, but you can");
+    if (isRestart === false) {
+      const answer = questions[questionNumber].answer;
+      wrongCounter === 6 &&
+        (popupText.textContent = `not this time, the answer was ${answer}, but you can`);
+    }
+    if (isRestart === true) {
+      const answer = questions[localStorage.getItem("que_lyu")].answer;
+      wrongCounter === 6 &&
+        (popupText.textContent = `not this time, the answer was ${answer}, but you can`);
+    }
     wrongCounter === 6 && disableAllButtons();
   }
 }
@@ -155,6 +163,7 @@ function setKeyBackground(keyValue, element) {
 
 document.addEventListener("keydown", function (event) {
   usedLetters.push(event.key.toUpperCase());
+  console.log(usedLetters);
 });
 
 export default keyboard;
