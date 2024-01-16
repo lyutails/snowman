@@ -809,4 +809,9 @@ body::-webkit-scrollbar-thumb {
   100% {
     text-shadow: 0 0 5px coral, 0 0 10px coral, 0 0 20px coral, 0 0 30px coral;
   }
+}
+@media screen and (min-width: 360px) and (max-width: 1032px) {
+  .snowman_title {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=style.css.map */
