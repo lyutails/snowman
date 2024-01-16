@@ -14,12 +14,11 @@ export default word;
 export let answerElements = [];
 
 export function createAnswer(questionNumber) {
-  answerElements.forEach((element) => element.remove());
-  answerElements = []
-  /* answerElements.forEach((element) => {
+  answerElements.forEach((element) => {
     console.log(element);
     word.removeChild(element);
-  }); */
+  });
+  answerElements = [];
 
   console.log(answerElements);
 
