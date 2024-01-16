@@ -31,7 +31,6 @@ restartButton.addEventListener("click", () => {
   isRestart = true;
   resetCorrectCounter();
   resetWrongCounter();
-  console.log(correctCounter);
   window.history.pushState({}, "", window.location.pathname);
   keys.forEach((key) => {
     key.removeAttribute("disabled");

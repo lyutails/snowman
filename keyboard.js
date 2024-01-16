@@ -62,14 +62,12 @@ function checkLetter(item, i) {
         const answer = questions[questionNumber].answer;
         checkAnswerLetter(letterTarget, answerArray, answerElements);
       }
-      console.log(isRestart);
       if (isRestart === true) {
         const answerArray = questions[localStorage.getItem("que")].answer
           .toUpperCase()
           .split("");
         const answer = questions[localStorage.getItem("que")].answer;
         checkAnswerLetter(letterTarget, answerArray, answerElements);
-        console.log(letterTarget, answerArray, answerElements)
       }
     };
   }
@@ -106,15 +104,12 @@ export function checkAnswerLetter(letter, word, elements) {
       const answer = questions[questionNumber].answer;
       correctCounter === answerArray.length && callPlayAgainModal();
       popupText.textContent = `you win \\o/ the found answer is ${answer}`;
-      console.log(correctCounter);
     }
     if (isRestart === true) {
-        console.log(isRestart)
       const answerArray = questions[localStorage.getItem("que")].answer
         .toUpperCase()
         .split("");
       const answer = questions[localStorage.getItem("que")].answer;
-      console.log(correctCounter);
       correctCounter === answerArray.length && callPlayAgainModal();
       popupText.textContent = `you win \\o/ the found answer is ${answer}`;
     }

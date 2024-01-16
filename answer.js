@@ -15,12 +15,9 @@ export let answerElements = [];
 
 export function createAnswer(questionNumber) {
   answerElements.forEach((element) => {
-    console.log(element);
     word.removeChild(element);
   });
   answerElements = [];
-
-  console.log(answerElements);
 
   const answerArray = questions[questionNumber].answer.toUpperCase().split("");
   const answer = questions[questionNumber].answer;
@@ -40,7 +37,6 @@ export function createAnswer(questionNumber) {
   });
 
   answerElements;
-  console.log(answerElements);
 }
 
 createAnswer(questionNumber);
