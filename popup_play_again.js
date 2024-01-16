@@ -55,6 +55,8 @@ export function callPlayAgainModal() {
     elementAppendChildrenTo: document.body,
     children: [popupPlayAgain, overlay],
   });
+  overlay.style.visibility = "visible";
+  popupPlayAgain.style.visibility = "visible";
 }
 
 function closePopup(element) {
@@ -80,6 +82,6 @@ popupRestartButton.addEventListener("click", () => {
   createAnswer(localStorage.getItem("que"));
   repairHeart(hearts);
   returnClothes();
-  overlay.style.display = "none";
-  popupPlayAgain.style.display = "none";
+  overlay.style.visibility = "hidden";
+  popupPlayAgain.style.visibility = "hidden";
 });
