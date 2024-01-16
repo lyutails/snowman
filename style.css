@@ -153,6 +153,7 @@ body::-webkit-scrollbar-thumb {
 }
 .snowman_sound_wrapper {
   width: 40%;
+  min-width: 300px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -160,6 +161,7 @@ body::-webkit-scrollbar-thumb {
 }
 .snowman_sound {
   width: 20%;
+  min-width: 50px;
   aspect-ratio: 1/1;
   background-image: url("./assets/icons//bell-christmas-eve.svg");
   background-repeat: no-repeat;
@@ -190,6 +192,7 @@ body::-webkit-scrollbar-thumb {
 }
 .snowman_pushishka {
   width: 8%;
+  min-width: 60px;
   aspect-ratio: 1/1;
   background-image: url("./assets/pics/pushishka_01.png");
   background-repeat: no-repeat;
@@ -197,6 +200,7 @@ body::-webkit-scrollbar-thumb {
 }
 .snowman_restart {
   width: 10%;
+  min-width: 70px;
   aspect-ratio: 1/0.5;
   border-radius: 10px;
   border: 1px solid green;
@@ -300,6 +304,8 @@ body::-webkit-scrollbar-thumb {
 }
 .snowman_lives {
   width: 50vw;
+  max-width: 1000px;
+  min-width: 300px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -371,6 +377,8 @@ body::-webkit-scrollbar-thumb {
 .snowman_word {
   width: 50vw;
   height: 50px;
+  max-width: 1000px;
+  min-width: 300px;
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -438,6 +446,7 @@ body::-webkit-scrollbar-thumb {
 
 .snowman_songicon {
   width: 30%;
+  min-width: 30px;
   aspect-ratio: 1/1;
   background-repeat: no-repeat;
   background-size: contain;
@@ -813,5 +822,67 @@ body::-webkit-scrollbar-thumb {
 @media screen and (min-width: 360px) and (max-width: 1032px) {
   .snowman_title {
     flex-direction: column;
+  }
+  .snowman_title_text {
+    font-size: 1.2rem;
+  }
+  .snowman_sound_name {
+    font-size: 0.6rem;
+  }
+  .snowman_question {
+    font-size: 1rem;
+  }
+  .snowman_word {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .snowman_keyboard_letter {
+    font-size: 1.2rem;
+  }
+  .snowman_orange.anim_forward {
+    animation-duration: 2s;
+  }
+  .snowman_orange.anim_backward {
+    animation-duration: 2s;
+  }
+  @keyframes orangeAnim {
+    0% {
+      transform: translateX(0vw) rotate(0deg);
+    }
+    100% {
+      transform: translateX(-40vw) rotate(-360deg);
+    }
+  }
+  @keyframes orangeAnimBack {
+    0% {
+      transform: translateX(-40vw) rotate(-360deg);
+    }
+    100% {
+      transform: translateX(0vw) rotate(0deg);
+    }
+  }
+}
+@media screen and (min-width: 1500px) and (max-width: 2800px) {
+  .snowman_orange.anim_forward {
+    animation-duration: 4s;
+  }
+  .snowman_orange.anim_backward {
+    animation-duration: 4s;
+  }
+  @keyframes orangeAnim {
+    0% {
+      transform: translateX(0vw) rotate(0deg);
+    }
+    100% {
+      transform: translateX(-30vw) rotate(-360deg);
+    }
+  }
+  @keyframes orangeAnimBack {
+    0% {
+      transform: translateX(-30vw) rotate(-360deg);
+    }
+    100% {
+      transform: translateX(0vw) rotate(0deg);
+    }
   }
 }/*# sourceMappingURL=style.css.map */
