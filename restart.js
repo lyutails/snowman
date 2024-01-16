@@ -11,6 +11,7 @@ import { hearts } from "./lives.js";
 import { checkAnswerNumber } from "./pick_random_question.js";
 import questions from "./questions.js";
 import { returnClothes } from "./return_clothes.js";
+import { yepAnim } from "./yep_anim.js";
 
 export let isRestart = false;
 
@@ -38,6 +39,7 @@ restartButton.addEventListener("click", () => {
   createAnswer(localStorage.getItem("que_lyu"));
   repairHeart(hearts);
   returnClothes();
+  yepAnim(false, '');
 });
 
 export default restartButton;

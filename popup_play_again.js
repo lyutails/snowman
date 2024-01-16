@@ -8,6 +8,7 @@ import { createAnswer } from "./answer.js";
 import { repairHeart } from "./heart_anim.js";
 import { returnClothes } from "./return_clothes.js";
 import { hearts } from "./lives.js";
+import { yepAnim } from "./yep_anim.js";
 
 const popupPlayAgain = createLayout({
   elementname: "popupPlayAgain",
@@ -84,4 +85,5 @@ popupRestartButton.addEventListener("click", () => {
   returnClothes();
   overlay.style.visibility = "hidden";
   popupPlayAgain.style.visibility = "hidden";
+  yepAnim(false, '');
 });
