@@ -967,6 +967,82 @@ body::-webkit-scrollbar-thumb {
       transform: translateX(0vw) rotate(0deg);
     }
   }
+
+  .snowman {
+    &_snowman {
+      width: 200px;
+      aspect-ratio: 1 / 1;
+      min-height: 200px;
+      background-image: url("./assets/pics/snowman/snowman_nude.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: 0 auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      background-position: center center;
+      position: relative;
+    }
+
+    &_hat {
+      position: absolute;
+      background-image: url("./assets/pics/snowman/hat.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 80px;
+      aspect-ratio: 1 / 1;
+      transform: translate(60px, -65px);
+    }
+
+    &_scarf {
+      position: absolute;
+      background-image: url("./assets/pics/snowman/scarf.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 78px;
+      aspect-ratio: 1 / 1;
+      transform: translate(58px, 26px);
+    }
+
+    &_button_top {
+      position: absolute;
+      background-image: url("./assets/pics/snowman/button.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 10px;
+      aspect-ratio: 1 / 1;
+      transform: translate(82px, 68px);
+    }
+
+    &_button_bottom {
+      position: absolute;
+      background-image: url("./assets/pics/snowman/button.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 10px;
+      aspect-ratio: 1 / 1;
+      transform: translate(80px, 88px) rotate(20deg);
+    }
+
+    &_left_glove {
+      position: absolute;
+      background-image: url("./assets/pics/snowman/glove_left.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 40px;
+      aspect-ratio: 1 / 1;
+      transform: translate(0px, 12px) rotate(0deg);
+    }
+
+    &_right_glove {
+      position: absolute;
+      background-image: url("./assets/pics/snowman/glove_right.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 40px;
+      aspect-ratio: 1 / 1;
+      transform: translate(154px, 11px) rotate(0deg);
+    }
+  }
 }
 
 @media screen and (min-width: 1500px) and (max-width: 2800px) {
