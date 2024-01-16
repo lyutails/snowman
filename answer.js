@@ -9,23 +9,30 @@ const word = createLayout({
   elementname: "word",
 });
 
-console.log(questionNumber);
-const answerArray = questions[questionNumber].answer.toUpperCase().split("");
-const answer = questions[questionNumber].answer;
-console.log(answer);
+export default word;
 
 export let answerElements = [];
 
-answerArray.forEach((letter, i) => {
-  letter = document.createElement("div");
-  letter.classList.add("snowman_answer_letter");
-  letter.textContent = answerArray.at(i);
-  letter.style.color = "transparent";
-  const content = answerArray.at(i);
-  word.appendChild(letter);
-  answerElements.push(letter);
-});
+export function createAnswer(questionNumber) {
+  answerElements.forEach((element) => element.remove());
 
-answerElements;
+  const answerArray = questions[questionNumber].answer.toUpperCase().split("");
+  const answer = questions[questionNumber].answer;
+  console.log(answer);
 
-export default word;
+  console.log(questionNumber);
+
+  answerArray.forEach((letter, i) => {
+    letter = document.createElement("div");
+    letter.classList.add("snowman_answer_letter");
+    letter.textContent = answerArray.at(i);
+    letter.style.color = "transparent";
+    const content = answerArray.at(i);
+    word.appendChild(letter);
+    answerElements.push(letter);
+  });
+
+  answerElements;
+}
+
+createAnswer(questionNumber);

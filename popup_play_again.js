@@ -1,5 +1,8 @@
 import createLayout from "./create_layout.js";
 import appendChildren from "./multiple_appendchild.js";
+import { checkAnswerNumber } from "./pick_random_question.js";
+import questions from "./questions.js";
+import { keys } from "./keyboard.js";
 
 const popupPlayAgain = createLayout({
   elementname: "popupPlayAgain",
@@ -58,3 +61,14 @@ function closePopup(element) {
 
 closePopup(crossClosePopup);
 closePopup(overlay);
+
+popupRestartButton.addEventListener("click", () => {
+  keys.forEach((key) => {
+    key.removeAttribute("disabled");
+    key.style.backgroundColor = "lightgreen";
+  });
+  checkAnswerNumber(questions);
+  overlay.style.display = "none";
+  popupPlayAgain.style.display = "none";
+  createAnswer(localStorage.getItem('que'));
+});

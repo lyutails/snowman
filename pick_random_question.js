@@ -23,10 +23,11 @@ export function pickRandomQuestion(questions) {
   console.log(questionNumber);
 }
 
-function checkAnswerNumber(questions) {
+export function checkAnswerNumber(questions) {
   pickRandomQuestion(questions);
   question.textContent = questions[questionNumber].question;
   updateQueryString(questionNumber);
+  localStorage.setItem("que", questionNumber);
 }
 
 checkAnswerNumber(questions);

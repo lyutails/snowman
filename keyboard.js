@@ -14,13 +14,15 @@ import { callPlayAgainModal, popupText } from "./popup_play_again.js";
 import questionNumber from "./pick_random_question.js";
 import { isRestart } from "./restart.js";
 
+export let keys = [];
+export let wrongCounter = 0;
+export let correctCounter = 0;
+
 const keyboardBody = createLayout({
   elementname: "keyboardBody",
   classname: `${commonCSSClassPrefix}_keyboard_body`,
   tag: "div",
 });
-
-export let keys = [];
 
 function keyboardLetters() {
   letters.forEach((item, i) => {
@@ -38,17 +40,30 @@ keyboardLetters();
 
 keys;
 
-const answerArray = questions[questionNumber].answer.toUpperCase().split("");
-const answer = questions[questionNumber].answer;
-
 function checkLetter(item, i) {
+  wrongCounter = 0;
+  correctCounter = 0;
   if (item instanceof HTMLElement) {
     item.onclick = function (event) {
       let letterTarget = event.currentTarget.textContent;
       item.setAttribute("disabled", true);
       usedLetters.push(letters.at(i));
       setKeyBackground(letters.at(i), item);
-      checkAnswerLetter(letterTarget, answerArray, answerElements);
+      if (isRestart === false) {
+        const answerArray = questions[questionNumber].answer
+          .toUpperCase()
+          .split("");
+        const answer = questions[questionNumber].answer;
+        checkAnswerLetter(letterTarget, answerArray, answerElements);
+      }
+      console.log(isRestart);
+      if (isRestart === true) {
+        const answerArray = questions[localStorage.getItem("que")].answer
+          .toUpperCase()
+          .split("");
+        const answer = questions[localStorage.getItem("que")].answer;
+        checkAnswerLetter(letterTarget, answerArray, answerElements);
+      }
     };
   }
 }
@@ -62,9 +77,6 @@ function runYepAnim(flag, letter) {
     yepAnim(false, letter);
   }
 }
-
-export let wrongCounter = 0;
-export let correctCounter = 0;
 
 export function checkAnswerLetter(letter, word, elements) {
   // let letterTarget = usedLetters.pop();
@@ -80,13 +92,27 @@ export function checkAnswerLetter(letter, word, elements) {
     removeClassOnAnimEnd(leftGlove);
     gloveAnim(rightGlove);
     removeClassOnAnimEnd(rightGlove);
-    correctCounter === answerArray.length && callPlayAgainModal();
-    popupText.textContent = `you win \\o/ the found answer is ${answer}`;
+    if (isRestart === false) {
+      const answerArray = questions[questionNumber].answer
+        .toUpperCase()
+        .split("");
+      const answer = questions[questionNumber].answer;
+      correctCounter === answerArray.length && callPlayAgainModal();
+      popupText.textContent = `you win \\o/ the found answer is ${answer}`;
+    }
+    if (isRestart === true) {
+      const answerArray = questions[localStorage.getItem("que")].answer
+        .toUpperCase()
+        .split("");
+      const answer = questions[localStorage.getItem("que")].answer;
+      correctCounter === answerArray.length && callPlayAgainModal();
+      popupText.textContent = `you win \\o/ the found answer is ${answer}`;
+    }
   } else {
     yep = false;
     runYepAnim(yep, letter);
-    heartAnim(hearts);
     wrongCounter++;
+    heartAnim(hearts, wrongCounter);
     snowmanIncorrectAnswerAnim();
     wrongCounter === 6 && callPlayAgainModal();
     wrongCounter === 6 &&
