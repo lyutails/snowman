@@ -1,23 +1,12 @@
 import { wrongCounter } from "./keyboard.js";
 import { buttonBottom, buttonTop, hat, leftGlove, rightGlove, scarf } from "./snowman.js";
 
+const snowmanClothesArray = [hat, buttonBottom, buttonTop, scarf, leftGlove, rightGlove];
+
 export function snowmanIncorrectAnswerAnim() {
-  if (wrongCounter === 1) {
-    hat.style.backgroundImage = `none`;
-  }
-  if (wrongCounter === 2) {
-    buttonBottom.style.backgroundImage = `none`;
-  }
-  if (wrongCounter === 3) {
-    buttonTop.style.backgroundImage = `none`;
-  }
-  if (wrongCounter === 4) {
-    scarf.style.backgroundImage = `none`;
-  }
-  if (wrongCounter === 5) {
-    leftGlove.style.backgroundImage = `none`;
-  }
-  if (wrongCounter === 6) {
-    rightGlove.style.backgroundImage = `none`;
+  for(let i = 0; i <= snowmanClothesArray.length; i++) {
+    if (wrongCounter === i+1) {
+      snowmanClothesArray[i].style.backgroundImage = `none`;
+    }
   }
 }

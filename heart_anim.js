@@ -1,7 +1,6 @@
 export function heartAnim(hearts, wrongCounter) {
   // const brokenHeart = hearts.pop();
   const brokenHeart = hearts.at(-wrongCounter);
-  console.log(hearts);
   brokenHeart.style.backgroundImage = `url("./assets/icons/broken-heart.svg")`;
   brokenHeart.style.animationName = "noBeating";
 }

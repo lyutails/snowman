@@ -18,6 +18,14 @@ export let keys = [];
 export let wrongCounter = 0;
 export let correctCounter = 0;
 
+export const resetWrongCounter = () => {
+  wrongCounter = 0;
+};
+
+export const resetCorrectCounter = () => {
+  correctCounter = 0;
+};
+
 const keyboardBody = createLayout({
   elementname: "keyboardBody",
   classname: `${commonCSSClassPrefix}_keyboard_body`,
@@ -41,8 +49,6 @@ keyboardLetters();
 keys;
 
 function checkLetter(item, i) {
-  wrongCounter = 0;
-  correctCounter = 0;
   if (item instanceof HTMLElement) {
     item.onclick = function (event) {
       let letterTarget = event.currentTarget.textContent;
@@ -63,6 +69,7 @@ function checkLetter(item, i) {
           .split("");
         const answer = questions[localStorage.getItem("que")].answer;
         checkAnswerLetter(letterTarget, answerArray, answerElements);
+        console.log(letterTarget, answerArray, answerElements)
       }
     };
   }
@@ -99,12 +106,15 @@ export function checkAnswerLetter(letter, word, elements) {
       const answer = questions[questionNumber].answer;
       correctCounter === answerArray.length && callPlayAgainModal();
       popupText.textContent = `you win \\o/ the found answer is ${answer}`;
+      console.log(correctCounter);
     }
     if (isRestart === true) {
+        console.log(isRestart)
       const answerArray = questions[localStorage.getItem("que")].answer
         .toUpperCase()
         .split("");
       const answer = questions[localStorage.getItem("que")].answer;
+      console.log(correctCounter);
       correctCounter === answerArray.length && callPlayAgainModal();
       popupText.textContent = `you win \\o/ the found answer is ${answer}`;
     }

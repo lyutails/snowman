@@ -3,7 +3,6 @@ import questions from "./questions.js";
 
 let questionNumber = 0;
 const url = new URL(window.location);
-console.log(window.location.search);
 
 function updateQueryString(value) {
   const url = new URL(window.location);
@@ -20,7 +19,6 @@ export function pickRandomQuestion(questions) {
       ? (questionRandom = Math.floor(Math.random() * questions.length))
       : (questionNumber = questionRandom);
   }
-  console.log(questionNumber);
 }
 
 export function checkAnswerNumber(questions) {
