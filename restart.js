@@ -12,8 +12,13 @@ import {
 import { hearts } from "./lives.js";
 import { checkAnswerNumber } from "./pick_random_question.js";
 import questions from "./questions.js";
+import { returnClothes } from "./return_clothes.js";
 
 export let isRestart = false;
+
+export const restart = () => {
+  isRestart = true;
+};
 
 const restartButton = createLayout({
   elementname: "restartButton",
@@ -35,6 +40,7 @@ restartButton.addEventListener("click", () => {
   checkAnswerNumber(questions);
   createAnswer(localStorage.getItem("que"));
   repairHeart(hearts);
+  returnClothes();
 });
 
 export default restartButton;

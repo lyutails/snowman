@@ -18,10 +18,8 @@ const snowmanClothesArray = [
   rightGlove,
 ];
 
-export function snowmanIncorrectAnswerAnim() {
-  for (let i = 0; i <= snowmanClothesArray.length; i++) {
-    if (wrongCounter === i + 1) {
-      snowmanClothesArray[i].style.visibility = `hidden`;
-    }
+export function returnClothes() {
+  for (let i = 0; i < snowmanClothesArray.length; i++) {
+    snowmanClothesArray[i].style.visibility = `visible`;
   }
 }

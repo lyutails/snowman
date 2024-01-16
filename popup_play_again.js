@@ -2,7 +2,12 @@ import createLayout from "./create_layout.js";
 import appendChildren from "./multiple_appendchild.js";
 import { checkAnswerNumber } from "./pick_random_question.js";
 import questions from "./questions.js";
-import { keys } from "./keyboard.js";
+import { keys, resetCorrectCounter, resetWrongCounter } from "./keyboard.js";
+import { isRestart, restart } from "./restart.js";
+import { createAnswer } from "./answer.js";
+import { repairHeart } from "./heart_anim.js";
+import { returnClothes } from "./return_clothes.js";
+import { hearts } from "./lives.js";
 
 const popupPlayAgain = createLayout({
   elementname: "popupPlayAgain",
@@ -63,12 +68,18 @@ closePopup(crossClosePopup);
 closePopup(overlay);
 
 popupRestartButton.addEventListener("click", () => {
+  restart();
+  resetCorrectCounter();
+  resetWrongCounter();
+  window.history.pushState({}, "", window.location.pathname);
   keys.forEach((key) => {
     key.removeAttribute("disabled");
     key.style.backgroundColor = "lightgreen";
   });
   checkAnswerNumber(questions);
+  createAnswer(localStorage.getItem("que"));
+  repairHeart(hearts);
+  returnClothes();
   overlay.style.display = "none";
   popupPlayAgain.style.display = "none";
-  createAnswer(localStorage.getItem('que'));
 });
