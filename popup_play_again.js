@@ -74,7 +74,7 @@ popupRestartButton.addEventListener("click", () => {
   restart();
   resetCorrectCounter();
   resetWrongCounter();
-  window.history.pushState({}, "", window.location.pathname);
+  checkIfAllQuestionsUsed();
   keys.forEach((key) => {
     key.removeAttribute("disabled");
     key.style.backgroundColor = "lightgreen";
@@ -85,5 +85,19 @@ popupRestartButton.addEventListener("click", () => {
   returnClothes();
   overlay.style.visibility = "hidden";
   popupPlayAgain.style.visibility = "hidden";
-  yepAnim(false, '');
+  yepAnim(false, "");
 });
+
+function checkIfAllQuestionsUsed() {
+  let usedQuestions = [];
+  const url = new URL(window.location);
+  if (window.location.search) {
+    for (let i = 0; i < questions.length; i++) {
+      url.searchParams.get(`q${i}`) === `${i}` && usedQuestions.push(i);
+      usedQuestions.length === 12 && window.history.pushState({}, "", window.location.pathname);
+      console.log(usedQuestions);
+      usedQuestions.length === 12 && (usedQuestions = []);
+    }
+  }
+}
+checkIfAllQuestionsUsed();

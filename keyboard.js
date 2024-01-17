@@ -79,6 +79,11 @@ function checkLetter(item, i) {
   }
 }
 
+document.addEventListener("keydown", function (event) {
+  usedLetters.push(event.key.toUpperCase());
+  console.log(usedLetters);
+});
+
 let yep = false;
 
 function runYepAnim(flag, letter) {
@@ -161,10 +166,5 @@ function setKeyBackground(keyValue, element) {
     element.style.backgroundColor = "snow";
   }
 }
-
-document.addEventListener("keydown", function (event) {
-  usedLetters.push(event.key.toUpperCase());
-  console.log(usedLetters);
-});
 
 export default keyboard;
