@@ -47,7 +47,6 @@ function keyboardLetters() {
 keyboardLetters();
 
 keys;
-console.log(keys);
 
 function disableAllButtons() {
   keys.forEach((key) => {
