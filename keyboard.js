@@ -110,6 +110,7 @@ export function checkAnswerLetter(letter, word, elements) {
       const answer = questions[questionNumber].answer;
       correctCounter === answerArray.length && callPlayAgainModal();
       popupText.textContent = `you win \\o/ the found answer is ${answer}`;
+      correctCounter === answerArray.length && disableAllButtons();
     }
     if (isRestart === true) {
       const answerArray = questions[localStorage.getItem("que_lyu")].answer

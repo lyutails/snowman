@@ -47,13 +47,8 @@ body {
   animation-duration: 20s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-}
-
-body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  display: flex;
-  flex-direction: column;
 }
 
 body::-webkit-scrollbar {
@@ -71,9 +66,6 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid transparent;
 }
 
-.snowman_keyboard {
-  width: 100%;
-}
 .snowman_wrapper {
   width: 90vw;
   max-width: 1000px;
@@ -81,10 +73,13 @@ body::-webkit-scrollbar-thumb {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
+  align-items: stretch;
 }
 .snowman_keyboard {
+  width: 100%;
   flex: 1 0 auto;
+  flex-grow: 1;
 }
 .snowman_keyboard_wrapper {
   width: 100%;
@@ -311,6 +306,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+  flex: 1 0 auto;
 }
 .snowman_heart {
   width: 10%;
@@ -324,7 +320,7 @@ body::-webkit-scrollbar-thumb {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   max-width: 60px;
-  min-width: 30px;
+  min-width: 40px;
 }
 .snowman_footer {
   width: 100%;
@@ -386,6 +382,7 @@ body::-webkit-scrollbar-thumb {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  flex: 1 0 auto;
 }
 .snowman_question {
   font-size: 1.2rem;
@@ -398,7 +395,7 @@ body::-webkit-scrollbar-thumb {
   animation-iteration-count: infinite;
 }
 .snowman_answer_letter {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   text-transform: uppercase;
   background-image: url("./assets/pics/cupcake.svg");
   background-repeat: no-repeat;
@@ -415,6 +412,7 @@ body::-webkit-scrollbar-thumb {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  font-family: "Patrick Hand", cursive;
 }
 .snowman_yep {
   position: relative;
@@ -604,10 +602,6 @@ body::-webkit-scrollbar-thumb {
   background-size: contain;
   margin-top: 20px;
   min-width: 100px;
-}
-
-.snowman_answer_letter {
-  font-size: 1rem;
 }
 
 @keyframes heartAnim {
@@ -825,7 +819,23 @@ body::-webkit-scrollbar-thumb {
     text-shadow: 0 0 5px coral, 0 0 10px coral, 0 0 20px coral, 0 0 30px coral;
   }
 }
-@media screen and (min-width: 360px) and (max-width: 1032px) {
+@media screen and (min-width: 768px) and (max-width: 1032px) {
+  .snowman_title_text {
+    font-size: 1.2rem;
+  }
+  .snowman_sound_name {
+    font-size: 0.6rem;
+  }
+  .snowman_keyboard_letter {
+    font-size: 1.2rem;
+    margin: 4px;
+  }
+  .snowman_answer_letter {
+    font-size: 1.2rem;
+    width: 60%;
+  }
+}
+@media screen and (min-width: 360px) and (max-width: 767.98px) {
   .snowman_title {
     flex-direction: column;
   }
@@ -843,13 +853,19 @@ body::-webkit-scrollbar-thumb {
     margin-bottom: 20px;
   }
   .snowman_keyboard_letter {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin: 2px;
   }
   .snowman_orange.anim_forward {
     animation-duration: 2s;
   }
   .snowman_orange.anim_backward {
     animation-duration: 2s;
+  }
+  .snowman_answer_letter {
+    font-size: 1rem;
+    width: 60%;
+    max-width: 40px;
   }
   @keyframes orangeAnim {
     0% {
@@ -870,69 +886,38 @@ body::-webkit-scrollbar-thumb {
   .snowman_snowman {
     width: 200px;
     aspect-ratio: 1/1;
-    min-height: 200px;
-    background-image: url("./assets/pics/snowman/snowman_nude.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 10px;
-    background-position: center center;
-    position: relative;
   }
   .snowman_hat {
-    position: absolute;
-    background-image: url("./assets/pics/snowman/hat.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 80px;
+    width: 88px;
     aspect-ratio: 1/1;
-    transform: translate(60px, -65px);
+    transform: translate(56px, -50px);
   }
   .snowman_scarf {
-    position: absolute;
-    background-image: url("./assets/pics/snowman/scarf.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 78px;
+    width: 85px;
     aspect-ratio: 1/1;
-    transform: translate(58px, 26px);
+    transform: translate(54px, 50px);
   }
   .snowman_button_top {
-    position: absolute;
-    background-image: url("./assets/pics/snowman/button.png");
-    background-repeat: no-repeat;
-    background-size: contain;
     width: 10px;
     aspect-ratio: 1/1;
-    transform: translate(82px, 68px);
+    transform: translate(82px, 88px);
   }
   .snowman_button_bottom {
-    position: absolute;
-    background-image: url("./assets/pics/snowman/button.png");
-    background-repeat: no-repeat;
-    background-size: contain;
     width: 10px;
     aspect-ratio: 1/1;
-    transform: translate(80px, 88px) rotate(20deg);
+    transform: translate(80px, 108px) rotate(20deg);
   }
   .snowman_left_glove {
-    position: absolute;
-    background-image: url("./assets/pics/snowman/glove_left.png");
-    background-repeat: no-repeat;
-    background-size: contain;
     width: 40px;
     aspect-ratio: 1/1;
-    transform: translate(0px, 12px) rotate(0deg);
+    transform: translate(-8px, 38px) rotate(0deg);
   }
   .snowman_right_glove {
-    position: absolute;
-    background-image: url("./assets/pics/snowman/glove_right.png");
-    background-repeat: no-repeat;
-    background-size: contain;
     width: 40px;
     aspect-ratio: 1/1;
-    transform: translate(154px, 11px) rotate(0deg);
+    transform: translate(160px, 38px) rotate(0deg);
   }
   @keyframes left_glove_anim {
     0% {
@@ -1045,6 +1030,9 @@ body::-webkit-scrollbar-thumb {
   }
   .popup_button {
     font-size: 1.8rem;
+  }
+  .snowman_restart {
+    margin-top: 20px;
   }
 }
 @media screen and (min-width: 1500px) and (max-width: 2800px) {
