@@ -20,14 +20,12 @@ export function pickRandomQuestion(questions) {
       ? (questionNumber = randomQuestion)
       : pickRandomQuestion(questions);
     firstUsedQuestions.length === 11 ? (firstUsedQuestions = []) : firstUsedQuestions.push(randomQuestion);
-    console.log(firstUsedQuestions);
   } else {
     let questionRandom = Math.floor(Math.random() * questions.length);
     url.searchParams.get(`q${questionRandom}`) !== `${questionRandom}`
       ? (questionNumber = questionRandom)
       : pickRandomQuestion(questions);
     alreadyUsedQuestions.push(questionRandom);
-    console.log(alreadyUsedQuestions);
   }
 }
 

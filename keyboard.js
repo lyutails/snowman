@@ -47,6 +47,7 @@ function keyboardLetters() {
 keyboardLetters();
 
 keys;
+console.log(keys);
 
 function disableAllButtons() {
   keys.forEach((key) => {
@@ -79,10 +80,17 @@ function checkLetter(item, i) {
   }
 }
 
-document.addEventListener("keydown", function (event) {
-  usedLetters.push(event.key.toUpperCase());
-  console.log(usedLetters);
+document.addEventListener("keydown", function (event, item, i) {
+  keys.forEach((key) => {
+    key.textContent === event.key.toUpperCase() &&
+      key.setAttribute("disabled", true);
+    key.textContent === event.key.toUpperCase() &&
+    (key.style.backgroundColor = "snow");
+    usedLetters.push(event.key.toUpperCase());
+  });
 });
+
+console.log(usedLetters);
 
 let yep = false;
 
