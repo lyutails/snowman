@@ -95,7 +95,6 @@ function checkIfAllQuestionsUsed() {
     for (let i = 0; i < questions.length; i++) {
       url.searchParams.get(`q${i}`) === `${i}` && usedQuestions.push(i);
       usedQuestions.length === 12 && window.history.pushState({}, "", window.location.pathname);
-      console.log(usedQuestions);
       usedQuestions.length === 12 && (usedQuestions = []);
     }
   }

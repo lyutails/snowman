@@ -11,9 +11,15 @@ function updateQueryString(value) {
 }
 
 export function pickRandomQuestion(questions) {
+  let firstUsedQuestions = [];
   let alreadyUsedQuestions = [];
   if (!window.location.search) {
-    questionNumber = Math.floor(Math.random() * questions.length);
+    let randomQuestion = Math.floor(Math.random() * questions.length);
+    !firstUsedQuestions.includes(randomQuestion)
+      ? (questionNumber = randomQuestion)
+      : pickRandomQuestion();
+    firstUsedQuestions.push(randomQuestion);
+    firstUsedQuestions.length === 12 && (firstUsedQuestions = []);
   } else {
     let questionRandom = Math.floor(Math.random() * questions.length);
     url.searchParams.get(`q${questionRandom}`) !== `${questionRandom}`
