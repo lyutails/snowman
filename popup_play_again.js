@@ -45,7 +45,7 @@ const mulledWine = createLayout({
   appendto: popupPlayAgain,
 });
 
-const overlay = createLayout({
+export const overlay = createLayout({
   elementname: "overlay",
   classname: "overlay",
   tag: "div",

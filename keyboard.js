@@ -13,6 +13,7 @@ import { gloveAnim, removeClassOnAnimEnd } from "./glove_anim.js";
 import { callPlayAgainModal, popupText } from "./popup_play_again.js";
 import questionNumber from "./pick_random_question.js";
 import { isRestart } from "./restart.js";
+import { wrongLayoutPopup } from "./wrong_layout_popup.js";
 
 export let keys = [];
 export let wrongCounter = 0;
@@ -86,6 +87,9 @@ function checkLetter(item, i) {
 function checkPhysicalLetter() {
   let letterTarget = "";
   document.addEventListener("keydown", function (event, item, i) {
+    if (!letters.includes(event.key.toUpperCase())) {
+      wrongLayoutPopup();
+    }
     keys.find((key) => {
       key.textContent === event.key.toUpperCase() &&
         key.setAttribute("disabled", true);
