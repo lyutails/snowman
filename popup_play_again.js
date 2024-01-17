@@ -88,7 +88,7 @@ popupRestartButton.addEventListener("click", () => {
   yepAnim(false, "");
 });
 
-function checkIfAllQuestionsUsed() {
+export function checkIfAllQuestionsUsed() {
   let usedQuestions = [];
   const url = new URL(window.location);
   if (window.location.search) {

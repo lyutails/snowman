@@ -10,22 +10,24 @@ function updateQueryString(value) {
   window.history.pushState("", "", url.toString());
 }
 
+let firstUsedQuestions = [];
+let alreadyUsedQuestions = [];
+
 export function pickRandomQuestion(questions) {
-  let firstUsedQuestions = [];
-  let alreadyUsedQuestions = [];
   if (!window.location.search) {
     let randomQuestion = Math.floor(Math.random() * questions.length);
     !firstUsedQuestions.includes(randomQuestion)
       ? (questionNumber = randomQuestion)
-      : pickRandomQuestion();
-    firstUsedQuestions.push(randomQuestion);
-    firstUsedQuestions.length === 12 && (firstUsedQuestions = []);
+      : pickRandomQuestion(questions);
+    firstUsedQuestions.length === 11 ? (firstUsedQuestions = []) : firstUsedQuestions.push(randomQuestion);
+    console.log(firstUsedQuestions);
   } else {
     let questionRandom = Math.floor(Math.random() * questions.length);
     url.searchParams.get(`q${questionRandom}`) !== `${questionRandom}`
       ? (questionNumber = questionRandom)
       : pickRandomQuestion(questions);
     alreadyUsedQuestions.push(questionRandom);
+    console.log(alreadyUsedQuestions);
   }
 }
 
