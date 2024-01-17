@@ -55,6 +55,23 @@ function disableAllButtons() {
   });
 }
 
+function letterCheckByIsRestart(letterTarget) {
+  if (isRestart === false) {
+    const answerArray = questions[questionNumber].answer
+      .toUpperCase()
+      .split("");
+    const answer = questions[questionNumber].answer;
+    checkAnswerLetter(letterTarget, answerArray, answerElements);
+  }
+  if (isRestart === true) {
+    const answerArray = questions[localStorage.getItem("que_lyu")].answer
+      .toUpperCase()
+      .split("");
+    const answer = questions[localStorage.getItem("que_lyu")].answer;
+    checkAnswerLetter(letterTarget, answerArray, answerElements);
+  }
+}
+
 function checkLetter(item, i) {
   if (item instanceof HTMLElement) {
     item.onclick = function (event) {
@@ -62,35 +79,26 @@ function checkLetter(item, i) {
       item.setAttribute("disabled", true);
       usedLetters.push(letters.at(i));
       setKeyBackground(letters.at(i), item);
-      if (isRestart === false) {
-        const answerArray = questions[questionNumber].answer
-          .toUpperCase()
-          .split("");
-        const answer = questions[questionNumber].answer;
-        checkAnswerLetter(letterTarget, answerArray, answerElements);
-      }
-      if (isRestart === true) {
-        const answerArray = questions[localStorage.getItem("que_lyu")].answer
-          .toUpperCase()
-          .split("");
-        const answer = questions[localStorage.getItem("que_lyu")].answer;
-        checkAnswerLetter(letterTarget, answerArray, answerElements);
-      }
+      letterCheckByIsRestart(letterTarget);
     };
   }
 }
 
-document.addEventListener("keydown", function (event, item, i) {
-  keys.forEach((key) => {
-    key.textContent === event.key.toUpperCase() &&
-      key.setAttribute("disabled", true);
-    key.textContent === event.key.toUpperCase() &&
-    (key.style.backgroundColor = "snow");
-    usedLetters.push(event.key.toUpperCase());
+function checkPhysicalLetter() {
+  let letterTarget = "";
+  document.addEventListener("keydown", function (event, item, i) {
+    keys.find((key) => {
+      key.textContent === event.key.toUpperCase() &&
+        key.setAttribute("disabled", true);
+      key.textContent === event.key.toUpperCase() &&
+        (key.style.backgroundColor = "snow");
+      usedLetters.push(event.key.toUpperCase());
+      letterTarget = event.key.toUpperCase();
+    });
+    letterCheckByIsRestart(letterTarget);
   });
-});
-
-console.log(usedLetters);
+}
+checkPhysicalLetter();
 
 let yep = false;
 
