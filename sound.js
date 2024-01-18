@@ -15,6 +15,11 @@ const songsArray = [
     song_path: "./assets/audio/Nick_Cave_O_Children.mp3",
     song_name: "Nick Cave Children",
   },
+  {
+    id: 4,
+    song_path: "./assets/audio/Idina Menzel - Let It Go (From 'Frozen' - Soundtrack Version).mp3",
+    song_name: "Frozen Let It Go",
+  },
 ];
 
 const soundWrapper = document.createElement("div");
@@ -63,9 +68,9 @@ volumeControl.oninput = function () {
   currentSong.volume = volumeControl.value / 100;
 };
 
-const songIconsArray = ["jingle", "ballet", "train"];
+const songIconsArray = ["jingle", "ballet", "train", "castle"];
 
-for (let i = 0; i <= 2; i++) {
+for (let i = 0; i <= 3; i++) {
   const songIcon = document.createElement("span");
   songIcon.classList.add("snowman_songicon", songIconsArray[i]);
   songIcons.appendChild(songIcon);

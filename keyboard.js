@@ -1,5 +1,5 @@
 import createLayout from "./create_layout.js";
-import { letters } from "./constants.js";
+import { lettersArray } from "./constants.js";
 import { commonCSSClassPrefix } from "./constants.js";
 import { usedLetters } from "./constants.js";
 import questions from "./questions.js";
@@ -14,6 +14,37 @@ import { callPlayAgainModal, popupText } from "./popup_play_again.js";
 import questionNumber from "./pick_random_question.js";
 import { isRestart } from "./restart.js";
 import { wrongLayoutPopup } from "./wrong_layout_popup.js";
+
+let letters = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+
+console.log(letters);
 
 export let keys = [];
 export let wrongCounter = 0;
@@ -32,6 +63,16 @@ const keyboardBody = createLayout({
   classname: `${commonCSSClassPrefix}_keyboard_body`,
   tag: "div",
 });
+
+let yep = false;
+
+function runYepAnim(flag, letter) {
+  if (flag === true) {
+    yepAnim(true, letter);
+  } else {
+    yepAnim(false, letter);
+  }
+}
 
 function keyboardLetters() {
   letters.forEach((item, i) => {
@@ -84,6 +125,52 @@ function checkLetter(item, i) {
   }
 }
 
+/* document.addEventListener("keydown", () => {
+  checkPhysicalLetter();
+});
+
+function checkPhysicalKey(event, letterTarget) {
+  console.log(event.target);
+  console.log(event.key);
+  event.target.textContent === event.key.toUpperCase() &&
+    event.target.setAttribute("disabled", true);
+  event.target.textContent.toUpperCase();
+  event.target.setAttribute("disabled", true);
+  event.target.style.backgroundColor = "snow";
+  usedLetters.push(event.target.textContent.toUpperCase());
+  letterTarget = event.target.textContent.toUpperCase();
+  console.log(letterTarget);
+  if (!letters.includes(event.target.textContent.toUpperCase())) {
+    wrongLayoutPopup();
+  }
+} */
+
+/* function checkPhysicalLetter() {
+  let letterTarget;
+  keys.find((item) => {
+    item.focus();
+    //console.log(item);
+    item.addEventListener("keydown", (event, letterTarget) => {
+      checkPhysicalKey(event, letterTarget);
+    });
+    key.addEventListener("keydown", (event) => {
+      key.textContent === event.key.toUpperCase() &&
+        key.setAttribute("disabled", true);
+      key.textContent === event.key.toUpperCase() &&
+        (key.style.backgroundColor = "snow");
+      usedLetters.push(event.key.toUpperCase());
+      letterTarget = event.key.toUpperCase();
+      if (!letters.includes(event.key.toUpperCase())) {
+        wrongLayoutPopup();
+      }
+    });
+     key.hasAttribute("disabled") &&
+      key.removeEventListener("keydown", checkPhysicalKey);
+  });
+  letterCheckByIsRestart(letterTarget);
+}
+// checkPhysicalLetter(); */
+
 function checkPhysicalLetter() {
   let letterTarget = "";
   document.addEventListener("keydown", function (event, item, i) {
@@ -95,7 +182,14 @@ function checkPhysicalLetter() {
           key.setAttribute("disabled", true);
         key.textContent === event.key.toUpperCase() &&
           (key.style.backgroundColor = "snow");
-        usedLetters.push(event.key.toUpperCase());
+        //usedLetters.push(event.key.toUpperCase());
+        const clickedLetterIndex = letters.indexOf(event.key.toUpperCase());
+        if (clickedLetterIndex > -1) {
+          letters.splice(clickedLetterIndex, 1);
+          console.log(clickedLetterIndex, letters);
+          usedLetters.push(event.key.toUpperCase());
+          console.log(usedLetters);
+        }
         letterTarget = event.key.toUpperCase();
       });
       letterCheckByIsRestart(letterTarget);
@@ -103,16 +197,6 @@ function checkPhysicalLetter() {
   });
 }
 checkPhysicalLetter();
-
-let yep = false;
-
-function runYepAnim(flag, letter) {
-  if (flag === true) {
-    yepAnim(true, letter);
-  } else {
-    yepAnim(false, letter);
-  }
-}
 
 export function checkAnswerLetter(letter, word, elements) {
   // let letterTarget = usedLetters.pop();
@@ -136,6 +220,8 @@ export function checkAnswerLetter(letter, word, elements) {
       correctCounter === answerArray.length && callPlayAgainModal();
       popupText.textContent = `you win \\o/ the found answer is ${answer}`;
       correctCounter === answerArray.length && disableAllButtons();
+      correctCounter === answerArray.length &&
+        (letters = [...letters, ...usedLetters]);
     }
     if (isRestart === true) {
       const answerArray = questions[localStorage.getItem("que_lyu")].answer
@@ -145,6 +231,8 @@ export function checkAnswerLetter(letter, word, elements) {
       correctCounter === answerArray.length && callPlayAgainModal();
       popupText.textContent = `you win \\o/ the found answer is ${answer}`;
       correctCounter === answerArray.length && disableAllButtons();
+      correctCounter === answerArray.length &&
+        (letters = [...letters, ...usedLetters]);
     }
   } else {
     yep = false;
@@ -164,7 +252,7 @@ export function checkAnswerLetter(letter, word, elements) {
         (popupText.textContent = `not this time, the answer was ${answer}, but you can`);
     }
     wrongCounter === 6 && disableAllButtons();
-    wrongCounter === 6 && document.removeEventListener("keydown", arguments.callee, false);
+    wrongCounter === 6 && (letters = [...letters, ...usedLetters]);
   }
 }
 

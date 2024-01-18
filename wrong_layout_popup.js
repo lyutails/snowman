@@ -6,7 +6,7 @@ const wrongLayout = createLayout({
   tag: "div",
   classname: "wrong_layout_popup",
   textcontent:
-    "hey there o/ we detected your keyboard layout appears to be not english one, please fix it",
+    "hey there o/ we detected either your keyboard layout appears to be not english one or you already pressed this button",
   appendto: document.body,
 });
 wrongLayout.style.visibility = "hidden";
@@ -20,7 +20,7 @@ overlay.style.visibility = "hidden";
 
 const crossClosePopup = createLayout({
   elementname: "crossClosePopup",
-  classname: "popup_cross",
+  classname: "popup_cross_gingerbread",
   tag: "div",
   appendto: wrongLayout,
 });

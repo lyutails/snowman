@@ -462,6 +462,9 @@ body::-webkit-scrollbar-thumb {
 .snowman_songicon.train {
   background-image: url("./assets/icons/train.svg");
 }
+.snowman_songicon.castle {
+  background-image: url("./assets/icons/castle_04.svg");
+}
 
 .snowman_orange.anim_forward {
   animation-name: orangeAnim;
@@ -593,6 +596,24 @@ body::-webkit-scrollbar-thumb {
   transform: translate(40px, -40px) rotate(360deg);
 }
 
+.popup_cross_gingerbread {
+  width: 50px;
+  aspect-ratio: 1/1;
+  background-image: url("./assets/icons/gingerbread-man.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(40px, -40px) rotate(0deg);
+  transition: all 0.8s ease-in-out;
+  filter: drop-shadow(0 0 2px snow) drop-shadow(0 0 1px snow);
+}
+.popup_cross_gingerbread:hover {
+  cursor: pointer;
+  transform: translate(40px, -40px) rotate(360deg);
+}
+
 .mulled_wine {
   width: 25%;
   min-width: 100px;
@@ -609,7 +630,7 @@ body::-webkit-scrollbar-thumb {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
   100% {
     transform: scale(1);
@@ -820,18 +841,18 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .wrong_layout_popup {
-  font-size: 2rem;
+  font-size: 1.6rem;
   text-align: center;
   position: absolute;
   width: 50vw;
-  aspect-ratio: 1/0.6;
+  aspect-ratio: 1/0.8;
   background-color: white;
   z-index: 300;
   border-radius: 20px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: url("./assets/pics/Sea-Buckthorn-Tea_04.jpg");
+  background-image: url("./assets/pics/cookies_01.png");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -841,6 +862,11 @@ body::-webkit-scrollbar-thumb {
   padding: 20px;
   color: snow;
   font-family: "Architects Daughter", cursive;
+}
+
+.snowflake_canvas {
+  width: 100px;
+  aspect-ratio: 1/1;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1032px) {
