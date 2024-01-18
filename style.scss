@@ -203,7 +203,8 @@ body::-webkit-scrollbar-thumb {
     background-position: center center;
     transform-origin: top center;
     transform: rotate(0deg);
-    margin-top: 10px;
+    padding-top: 5px;
+    overflow: hidden;
 
     &:hover {
       cursor: pointer;
