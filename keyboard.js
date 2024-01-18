@@ -89,16 +89,17 @@ function checkPhysicalLetter() {
   document.addEventListener("keydown", function (event, item, i) {
     if (!letters.includes(event.key.toUpperCase())) {
       wrongLayoutPopup();
+    } else {
+      keys.find((key) => {
+        key.textContent === event.key.toUpperCase() &&
+          key.setAttribute("disabled", true);
+        key.textContent === event.key.toUpperCase() &&
+          (key.style.backgroundColor = "snow");
+        usedLetters.push(event.key.toUpperCase());
+        letterTarget = event.key.toUpperCase();
+      });
+      letterCheckByIsRestart(letterTarget);
     }
-    keys.find((key) => {
-      key.textContent === event.key.toUpperCase() &&
-        key.setAttribute("disabled", true);
-      key.textContent === event.key.toUpperCase() &&
-        (key.style.backgroundColor = "snow");
-      usedLetters.push(event.key.toUpperCase());
-      letterTarget = event.key.toUpperCase();
-    });
-    letterCheckByIsRestart(letterTarget);
   });
 }
 checkPhysicalLetter();
@@ -163,6 +164,7 @@ export function checkAnswerLetter(letter, word, elements) {
         (popupText.textContent = `not this time, the answer was ${answer}, but you can`);
     }
     wrongCounter === 6 && disableAllButtons();
+    wrongCounter === 6 && document.removeEventListener("keydown", arguments.callee, false);
   }
 }
 
