@@ -164,6 +164,7 @@ body::-webkit-scrollbar-thumb {
   background-position: center center;
   transform-origin: top center;
   transform: rotate(0deg);
+  margin-top: 10px;
 }
 .snowman_sound:hover {
   cursor: pointer;
