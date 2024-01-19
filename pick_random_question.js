@@ -24,14 +24,17 @@ export function pickRandomQuestion(questions) {
       : firstUsedQuestions.push(randomQuestion);
   } else {
     let questionRandom = Math.floor(Math.random() * questions.length);
-    url.searchParams.get(`q${questionRandom}`) !== `${questionRandom}`
-      ? (questionNumber = questionRandom)
-      : pickRandomQuestion(questions);
-    alreadyUsedQuestions.push(questionRandom);
     if (localStorage.getItem("que_lyu")) {
       localStorage.getItem("que_lyu") === questionRandom &&
         pickRandomQuestion(questions);
     }
+    url.searchParams.get(`q${questionRandom}`) !== `${questionRandom}` ||
+    !alreadyUsedQuestions.includes(questionRandom)
+      ? (questionNumber = questionRandom)
+      : pickRandomQuestion(questions);
+    alreadyUsedQuestions.length === 11
+      ? (alreadyUsedQuestions = [])
+      : alreadyUsedQuestions.push(questionRandom);
   }
 }
 
