@@ -218,7 +218,7 @@ body::-webkit-scrollbar-thumb {
   }
 
   &_audiolist {
-    width: 70%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -228,7 +228,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 50%;
+    width: 60%;
   }
 
   &_pushishka {
