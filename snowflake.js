@@ -1,15 +1,13 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { OrbitControls } from "./node_modules/three/examples/jsm/controls/OrbitControls.js";
-import { CSS2DRenderer } from "./node_modules/three/examples/jsm/renderers/CSS2DRenderer.js";
-import { DRACOLoader } from "./node_modules/three/examples/jsm/loaders/DRACOLoader.js";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { CSS2DRenderer } from "three/addons/renderers/CSS2DRenderer.js";
+import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 
 export const canvas = document.createElement("canvas");
 canvas.classList.add("snowflake_canvas");
 canvas.width = 200;
 canvas.height = 200;
-canvas.style.width = "200px";
-canvas.style.height = "200px";
 
 const scene = new THREE.Scene();
 
