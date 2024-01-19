@@ -19,13 +19,19 @@ export function pickRandomQuestion(questions) {
     !firstUsedQuestions.includes(randomQuestion)
       ? (questionNumber = randomQuestion)
       : pickRandomQuestion(questions);
-    firstUsedQuestions.length === 11 ? (firstUsedQuestions = []) : firstUsedQuestions.push(randomQuestion);
+    firstUsedQuestions.length === 11
+      ? (firstUsedQuestions = [])
+      : firstUsedQuestions.push(randomQuestion);
   } else {
     let questionRandom = Math.floor(Math.random() * questions.length);
     url.searchParams.get(`q${questionRandom}`) !== `${questionRandom}`
       ? (questionNumber = questionRandom)
       : pickRandomQuestion(questions);
     alreadyUsedQuestions.push(questionRandom);
+    if (localStorage.getItem("que_lyu")) {
+      localStorage.getItem("que_lyu") === questionRandom &&
+        pickRandomQuestion(questions);
+    }
   }
 }
 
