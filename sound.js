@@ -70,6 +70,8 @@ volumeControl.oninput = function () {
 
 const songIconsArray = ["jingle", "ballet", "train", "castle"];
 
+let currentSong = new Audio(songsArray[0].song_path);
+
 for (let i = 0; i <= 3; i++) {
   const songIcon = document.createElement("span");
   songIcon.classList.add("snowman_songicon", songIconsArray[i]);
@@ -77,19 +79,18 @@ for (let i = 0; i <= 3; i++) {
 
   songIcon.onclick = () => {
     soundName.textContent = songsArray[i].song_name;
-    currentSong = new Audio(songsArray[i].song_path);
-
+    currentSong.setAttribute('src', songsArray[i].song_path);
     currentSong.setAttribute("loop", true);
+    soundIcon.classList.remove("anim");
   };
 }
 
 soundName.textContent = songsArray[0].song_name;
 
-let currentSong = new Audio(songsArray[0].song_path);
-
 currentSong.setAttribute("loop", true);
 
 function playSound() {
+  currentSong.load();
   currentSong.play();
 
   let loopSong = currentSong.loop;
