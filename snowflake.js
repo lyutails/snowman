@@ -102,7 +102,7 @@ const createControls = () => {
   const renderer = new CSS2DRenderer();
   renderer.setSize(canvas.width, canvas.height);
   renderer.domElement.style.position = "absolute";
-  renderer.domElement.style.top = "160px";
+  renderer.domElement.style.top = "120px";
   renderer.domElement.style.left = "10px";
   renderer.domElement.style.zIndex = "500";
   document.body.appendChild(renderer.domElement);

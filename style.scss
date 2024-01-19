@@ -740,7 +740,7 @@ body::-webkit-scrollbar-thumb {
 .snowflake_canvas {
   display: block;
   position: absolute;
-  top: 160px;
+  top: 120px;
   left: 10px;
   // z-index: 500;
 }
@@ -1214,7 +1214,9 @@ body::-webkit-scrollbar-thumb {
   }
 
   .snowman_restart {
-    margin-top: 20px;
+    // position: absolute;
+    // margin-top: 20px;
+    align-self: flex-end;
   }
 }
 

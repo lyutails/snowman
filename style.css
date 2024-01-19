@@ -654,7 +654,7 @@ body::-webkit-scrollbar-thumb {
 .snowflake_canvas {
   display: block;
   position: absolute;
-  top: 160px;
+  top: 120px;
   left: 10px;
 }
 
@@ -1086,7 +1086,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 1.8rem;
   }
   .snowman_restart {
-    margin-top: 20px;
+    align-self: flex-end;
   }
 }
 @media screen and (min-width: 1500px) and (max-width: 2800px) {
