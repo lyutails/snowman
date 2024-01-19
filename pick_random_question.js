@@ -28,13 +28,14 @@ export function pickRandomQuestion(questions) {
       localStorage.getItem("que_lyu") === questionRandom &&
         pickRandomQuestion(questions);
     }
+    !alreadyUsedQuestions.includes(questionRandom) &&
+      alreadyUsedQuestions.push(questionRandom);
     url.searchParams.get(`q${questionRandom}`) !== `${questionRandom}` ||
     !alreadyUsedQuestions.includes(questionRandom)
       ? (questionNumber = questionRandom)
       : pickRandomQuestion(questions);
-    alreadyUsedQuestions.length === 11
-      ? (alreadyUsedQuestions = [])
-      : alreadyUsedQuestions.push(questionRandom);
+    alreadyUsedQuestions.length === 11 && (alreadyUsedQuestions = []);
+    console.log(alreadyUsedQuestions);
   }
 }
 
