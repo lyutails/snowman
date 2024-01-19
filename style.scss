@@ -740,9 +740,9 @@ body::-webkit-scrollbar-thumb {
 .snowflake_canvas {
   display: block;
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 500;
+  top: 160px;
+  left: 50px;
+  // z-index: 500;
 }
 
 @keyframes heartAnim {
