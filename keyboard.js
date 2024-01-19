@@ -44,8 +44,6 @@ let letters = [
   "Z",
 ];
 
-console.log(letters);
-
 export let keys = [];
 export let wrongCounter = 0;
 export let correctCounter = 0;
@@ -125,52 +123,6 @@ function checkLetter(item, i) {
   }
 }
 
-/* document.addEventListener("keydown", () => {
-  checkPhysicalLetter();
-});
-
-function checkPhysicalKey(event, letterTarget) {
-  console.log(event.target);
-  console.log(event.key);
-  event.target.textContent === event.key.toUpperCase() &&
-    event.target.setAttribute("disabled", true);
-  event.target.textContent.toUpperCase();
-  event.target.setAttribute("disabled", true);
-  event.target.style.backgroundColor = "snow";
-  usedLetters.push(event.target.textContent.toUpperCase());
-  letterTarget = event.target.textContent.toUpperCase();
-  console.log(letterTarget);
-  if (!letters.includes(event.target.textContent.toUpperCase())) {
-    wrongLayoutPopup();
-  }
-} */
-
-/* function checkPhysicalLetter() {
-  let letterTarget;
-  keys.find((item) => {
-    item.focus();
-    //console.log(item);
-    item.addEventListener("keydown", (event, letterTarget) => {
-      checkPhysicalKey(event, letterTarget);
-    });
-    key.addEventListener("keydown", (event) => {
-      key.textContent === event.key.toUpperCase() &&
-        key.setAttribute("disabled", true);
-      key.textContent === event.key.toUpperCase() &&
-        (key.style.backgroundColor = "snow");
-      usedLetters.push(event.key.toUpperCase());
-      letterTarget = event.key.toUpperCase();
-      if (!letters.includes(event.key.toUpperCase())) {
-        wrongLayoutPopup();
-      }
-    });
-     key.hasAttribute("disabled") &&
-      key.removeEventListener("keydown", checkPhysicalKey);
-  });
-  letterCheckByIsRestart(letterTarget);
-}
-// checkPhysicalLetter(); */
-
 function checkPhysicalLetter() {
   let letterTarget = "";
   document.addEventListener("keydown", function (event, item, i) {
@@ -186,9 +138,7 @@ function checkPhysicalLetter() {
         const clickedLetterIndex = letters.indexOf(event.key.toUpperCase());
         if (clickedLetterIndex > -1) {
           letters.splice(clickedLetterIndex, 1);
-          console.log(clickedLetterIndex, letters);
           usedLetters.push(event.key.toUpperCase());
-          console.log(usedLetters);
         }
         letterTarget = event.key.toUpperCase();
       });
