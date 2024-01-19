@@ -70,7 +70,9 @@ scene.add(lightThree);
 const lightFour = new THREE.PointLight(0x25cdf1, 60);
 lightFour.position.set(3, -5, 2);
 scene.add(lightFour);
-camera.add(lightFour);
+const lightFive = new THREE.PointLight(0x21ffd3, 70);
+lightFive.position.set(-1, -5, 2);
+camera.add(lightFive);
 
 scene.background = null;
 
