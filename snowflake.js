@@ -100,7 +100,8 @@ const createControls = () => {
   const renderer = new CSS2DRenderer();
   renderer.setSize(canvas.width, canvas.height);
   renderer.domElement.style.position = "absolute";
-  renderer.domElement.style.top = "0px";
+  renderer.domElement.style.top = "160px";
+  renderer.domElement.style.left = "50px";
   document.body.appendChild(renderer.domElement);
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.autoRotate = true;
