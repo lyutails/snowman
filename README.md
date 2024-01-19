@@ -7,5 +7,5 @@ done: 16.01.2024
 https://snowman-vert.vercel.app/
 
 ## Screenshot
-![screenshot](./assets/pics/snowman_screen_02.PNG)
-![screenshot](./assets/pics/snowman_05.gif)
+![screenshot](./assets/pics/snowman_screen_04.PNG)
+![screenshot](./assets/pics/snowman_06.gif)
