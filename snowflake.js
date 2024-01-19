@@ -1,101 +1,116 @@
 import * as THREE from "three";
-import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { CSS2DRenderer } from "three/examples/jsm/renderers/CSS2DRenderer.js";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { OrbitControls } from "./node_modules/three/examples/jsm/controls/OrbitControls.js";
+import { CSS2DRenderer } from "./node_modules/three/examples/jsm/renderers/CSS2DRenderer.js";
+import { DRACOLoader } from "./node_modules/three/examples/jsm/loaders/DRACOLoader.js";
 
-const canvas = document.createElement('canvas');
-canvas.classList.add('snowflake_canvas')
+export const canvas = document.createElement("canvas");
+canvas.classList.add("snowflake_canvas");
+canvas.width = 200;
+canvas.height = 200;
+canvas.style.width = "200px";
+canvas.style.height = "200px";
 
-function createScene() {
-  this.scene = new THREE.Scene();
+const scene = new THREE.Scene();
 
-  const loaderGLTF = new GLTFLoader();
-  const dracoLoader = new DRACOLoader();
-  dracoLoader.setDecoderPath("../../../assets/draco/");
-  loaderGLTF.setDRACOLoader(dracoLoader);
+const loaderGLTF = new GLTFLoader();
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath("./draco/");
+loaderGLTF.setDRACOLoader(dracoLoader);
 
-  const snowflakeModelGLB =
-    "../../../assets/3d_glb/snowflake_compressed_01-v1.glb";
+const snowflakeModelGLB = "./assets/3d/snowflake_compressed_01-v1.glb";
 
-  loaderGLTF.load(snowflakeModelGLB, (gltf) => {
-    this.snowflake = gltf.scene.children[0];
-    this.scene.add(this.snowflake);
-    this.snowflake.scale.set(3.5, 3.5, 3.5);
-  });
+const rotationSpeedX = 0.02;
+const rotationSpeedY = 0.02;
 
-  let aspectRatio = this.getAspectRatio();
-  this.camera = new THREE.PerspectiveCamera(
-    this.fieldOfView,
-    aspectRatio,
-    this.nearClippingPlane,
-    this.farClippingPlane
-  );
-  this.camera.position.z = this.cameraZ;
+let snowflake;
 
-  this.ambientLight = new THREE.AmbientLight(0xffffff);
-  this.scene.add(this.ambientLight);
+loaderGLTF.load(snowflakeModelGLB, (gltf) => {
+  snowflake = gltf.scene;
+  scene.add(snowflake);
+  snowflake.scale.set(10, 10, 10);
+  snowflake.position.set(0, 0, 0);
 
-  this.directionalLight = new THREE.DirectionalLight(0x4bd3ff, 0.6);
-  this.directionalLight.position.set(0, 1, 0);
-  this.directionalLight.castShadow = true;
-  this.scene.add(this.directionalLight);
-  this.lightOne = new THREE.PointLight(0xff2bf2, 80);
-  this.lightOne.position.set(0, 10, -10);
-  this.scene.add(this.lightOne);
-  this.lightTwo = new THREE.PointLight(0x4bffd3, 60);
-  this.lightTwo.position.set(10, -10, 0);
-  this.scene.add(this.lightTwo);
-  this.lightThree = new THREE.PointLight(0xb83cff, 60);
-  this.lightThree.position.set(1, 5, 1);
-  this.scene.add(this.lightThree);
-  this.lightFour = new THREE.PointLight(0x25cdf1, 60);
-  this.lightFour.position.set(3, -5, 2);
-  this.scene.add(this.lightFour);
-}
+  if (snowflake) {
+    snowflake.rotation.x += rotationSpeedX;
+    snowflake.rotation.y += rotationSpeedY;
+  }
+});
 
-function getAspectRatio() {
-  return canvas.clientWidth / canvas.clientHeight;
-}
+const fieldOfView = 75;
+const nearClippingPlane = 0.1;
+const farClippingPlane = 1000;
+
+let aspectRatio = canvas.width / canvas.height;
+const camera = new THREE.PerspectiveCamera(
+  fieldOfView,
+  aspectRatio,
+  nearClippingPlane,
+  farClippingPlane
+);
+
+const cameraZ = 400;
+camera.position.z = cameraZ;
+camera.position.set(6, 6, 12);
+
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(ambientLight);
+
+const directionalLight = new THREE.DirectionalLight(0x4bd3ff, 0.6);
+directionalLight.position.set(0, 1, 0);
+directionalLight.castShadow = true;
+scene.add(directionalLight);
+const lightOne = new THREE.PointLight(0xff2bf2, 80);
+lightOne.position.set(0, 10, -10);
+scene.add(lightOne);
+const lightTwo = new THREE.PointLight(0x4bffd3, 60);
+lightTwo.position.set(10, -10, 0);
+scene.add(lightTwo);
+const lightThree = new THREE.PointLight(0xb83cff, 60);
+lightThree.position.set(1, 5, 1);
+scene.add(lightThree);
+const lightFour = new THREE.PointLight(0x25cdf1, 60);
+lightFour.position.set(3, -5, 2);
+scene.add(lightFour);
+camera.add(lightFour);
+
+scene.background = null;
+
+const renderer = new THREE.WebGL1Renderer({
+  canvas: canvas,
+  alpha: true,
+});
+renderer.setClearColor(0x000000, 0);
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(canvas.width, canvas.height);
+document.body.appendChild(renderer.domElement);
 
 function animSnowflake() {
-  if (this.snowflake) {
-    this.snowflake.rotation.x += this.rotationSpeedX;
-    this.snowflake.rotation.y += this.rotationSpeedY;
+  if (snowflake) {
+    snowflake.rotation.x += rotationSpeedX;
+    snowflake.rotation.y += rotationSpeedY;
   }
 }
 
-function startRenderingLoop() {
-  const renderer = new THREE.WebGL1Renderer({
-    canvas: this.canvas,
-    alpha: true,
-  });
-  renderer.setClearColor(0x000000, 0);
-  scene.background = null;
-  renderer.setPixelRatio(devicePixelRatio);
-  renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
-
-  let component = this;
-  (function render() {
-    requestAnimationFrame(render);
-    component.animSnowflake();
-    component.renderer.render(component.scene, component.camera);
-  })();
+function render() {
+  requestAnimationFrame(render);
+  animSnowflake();
+  renderer.render(scene, camera);
 }
 
 const createControls = () => {
   const renderer = new CSS2DRenderer();
-  renderer.setSize(this.canvas.width, this.canvas.height);
+  renderer.setSize(canvas.width, canvas.height);
   renderer.domElement.style.position = "absolute";
   renderer.domElement.style.top = "0px";
   document.body.appendChild(renderer.domElement);
-  this.controls = new OrbitControls(this.camera, renderer.domElement);
-  this.controls.autoRotate = true;
-  this.controls.enableZoom = true;
-  this.controls.enablePan = true;
-  this.controls.update();
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.autoRotate = true;
+  controls.enableZoom = true;
+  controls.enablePan = true;
+  controls.update();
 };
 
-createScene();
-startRenderingLoop();
 createControls();
+
+render();
