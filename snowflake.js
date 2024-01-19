@@ -103,7 +103,7 @@ const createControls = () => {
   renderer.setSize(canvas.width, canvas.height);
   renderer.domElement.style.position = "absolute";
   renderer.domElement.style.top = "160px";
-  renderer.domElement.style.left = "50px";
+  renderer.domElement.style.left = "10px";
   renderer.domElement.style.zIndex = "500";
   document.body.appendChild(renderer.domElement);
   const controls = new OrbitControls(camera, renderer.domElement);
