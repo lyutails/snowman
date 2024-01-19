@@ -102,6 +102,7 @@ const createControls = () => {
   renderer.domElement.style.position = "absolute";
   renderer.domElement.style.top = "160px";
   renderer.domElement.style.left = "50px";
+  renderer.domElement.style.zIndex = "500";
   document.body.appendChild(renderer.domElement);
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.autoRotate = true;
