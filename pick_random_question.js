@@ -27,11 +27,9 @@ export function pickRandomQuestion(questions) {
     const url = new URL(window.location);
     if (url.searchParams.get(`q${questionRandom}`) == null) {
       questionNumber = questionRandom;
-      console.log('lalala 1')
     }
     if (url.searchParams.get(`q${questionRandom}`)) {
       pickRandomQuestion(questions);
-      console.log('lalala 2')
     }
   }
 }

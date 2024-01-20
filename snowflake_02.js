@@ -26,7 +26,7 @@ let snowflake;
 loaderGLTF.load(snowflakeModelGLB, (gltf) => {
   snowflake = gltf.scene;
   scene.add(snowflake);
-  snowflake.scale.set(8, 8, 8);
+  snowflake.scale.set(10, 10, 10);
   snowflake.position.set(0, 0, 0);
 
   if (snowflake) {
