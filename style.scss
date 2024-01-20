@@ -629,6 +629,7 @@ body::-webkit-scrollbar-thumb {
   background-repeat: no-repeat;
   background-size: cover;
   width: 60vw;
+  max-width: 1000px;
   aspect-ratio: 1 / 0.7;
   border-radius: 20px;
   z-index: 200;
@@ -719,6 +720,7 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   position: absolute;
   width: 50vw;
+  max-width: 1000px;
   aspect-ratio: 1 / 0.8;
   background-color: white;
   z-index: 300;
@@ -738,11 +740,19 @@ body::-webkit-scrollbar-thumb {
   font-family: "Architects Daughter", cursive;
 }
 
-.snowflake_canvas {
+.snowflake_one_canvas {
   display: block;
   position: absolute;
   top: 120px;
   left: 10px;
+  // z-index: 500;
+}
+
+.snowflake_two_canvas {
+  display: block;
+  position: absolute;
+  top: 220px;
+  right: 15px;
   // z-index: 500;
 }
 
