@@ -10,32 +10,40 @@ function updateQueryString(value) {
   window.history.pushState("", "", url.toString());
 }
 
-let firstUsedQuestions = [];
-let alreadyUsedQuestions = [];
-
 export function pickRandomQuestion(questions) {
   if (!window.location.search) {
-    let randomQuestion = Math.floor(Math.random() * questions.length);
-    !firstUsedQuestions.includes(randomQuestion)
-      ? (questionNumber = randomQuestion)
-      : pickRandomQuestion(questions);
-    firstUsedQuestions.length === 11
-      ? (firstUsedQuestions = [])
-      : firstUsedQuestions.push(randomQuestion);
+    let questionRandom = Math.floor(Math.random() * questions.length);
+    console.log("lalala");
+    console.log(+localStorage.getItem("que_lyu"), questionRandom);
+    if (
+      +localStorage.getItem("que_lyu") !== questionRandom ||
+      !localStorage.getItem("que_lyu")
+    ) {
+      questionNumber = questionRandom;
+      console.log("lalala 1");
+    }
+    if (+localStorage.getItem("que_lyu") === questionRandom) {
+      console.log("lalala 3");
+      pickRandomQuestion(questions);
+    }
   } else {
     let questionRandom = Math.floor(Math.random() * questions.length);
-    if (localStorage.getItem("que_lyu")) {
-      localStorage.getItem("que_lyu") === questionRandom &&
-        pickRandomQuestion(questions);
+    console.log("lalala 4");
+    const url = new URL(window.location);
+
+    console.log(
+      url.searchParams.get(`q${questionRandom}`),
+      `${questionRandom}`,
+      `q${questionRandom}`
+    );
+    if (url.searchParams.get(`q${questionRandom}`) == null) {
+      questionNumber = questionRandom;
+      console.log("lalala 5");
     }
-    !alreadyUsedQuestions.includes(questionRandom) &&
-      alreadyUsedQuestions.push(questionRandom);
-    url.searchParams.get(`q${questionRandom}`) !== `${questionRandom}` ||
-    !alreadyUsedQuestions.includes(questionRandom)
-      ? (questionNumber = questionRandom)
-      : pickRandomQuestion(questions);
-    alreadyUsedQuestions.length === 11 && (alreadyUsedQuestions = []);
-    console.log(alreadyUsedQuestions);
+    if (url.searchParams.get(`q${questionRandom}`)) {
+      pickRandomQuestion(questions);
+      console.log("lalala 6");
+    }
   }
 }
 

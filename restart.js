@@ -2,11 +2,7 @@ import { createAnswer } from "./answer.js";
 import { commonCSSClassPrefix } from "./constants.js";
 import createLayout from "./create_layout.js";
 import { repairHeart } from "./heart_anim.js";
-import {
-  keys,
-  resetCorrectCounter,
-  resetWrongCounter,
-} from "./keyboard.js";
+import { keys, resetCorrectCounter, resetWrongCounter } from "./keyboard.js";
 import { hearts } from "./lives.js";
 import { checkAnswerNumber } from "./pick_random_question.js";
 import questions from "./questions.js";
@@ -39,7 +35,7 @@ restartButton.addEventListener("click", () => {
   createAnswer(localStorage.getItem("que_lyu"));
   repairHeart(hearts);
   returnClothes();
-  yepAnim(false, '');
+  yepAnim(false, "");
 });
 
 export default restartButton;
