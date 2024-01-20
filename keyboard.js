@@ -47,6 +47,7 @@ let letters = [
 export let keys = [];
 export let wrongCounter = 0;
 export let correctCounter = 0;
+export let win = false;
 
 export const resetWrongCounter = () => {
   wrongCounter = 0;
@@ -167,7 +168,8 @@ export function checkAnswerLetter(letter, word, elements) {
         .toUpperCase()
         .split("");
       const answer = questions[questionNumber].answer;
-      correctCounter === answerArray.length && callPlayAgainModal();
+      correctCounter === answerArray.length && (win = true);
+      correctCounter === answerArray.length && callPlayAgainModal(win);
       popupText.textContent = `you win \\o/ the found answer is ${answer}`;
       correctCounter === answerArray.length && disableAllButtons();
       correctCounter === answerArray.length &&
@@ -178,7 +180,8 @@ export function checkAnswerLetter(letter, word, elements) {
         .toUpperCase()
         .split("");
       const answer = questions[localStorage.getItem("que_lyu")].answer;
-      correctCounter === answerArray.length && callPlayAgainModal();
+      correctCounter === answerArray.length && (win = true);
+      correctCounter === answerArray.length && callPlayAgainModal(win);
       popupText.textContent = `you win \\o/ the found answer is ${answer}`;
       correctCounter === answerArray.length && disableAllButtons();
       correctCounter === answerArray.length &&
@@ -190,7 +193,8 @@ export function checkAnswerLetter(letter, word, elements) {
     wrongCounter++;
     heartAnim(hearts, wrongCounter);
     snowmanIncorrectAnswerAnim();
-    wrongCounter === 6 && callPlayAgainModal();
+    wrongCounter === 6 && (win = false);
+    wrongCounter === 6 && callPlayAgainModal(win);
     if (isRestart === false) {
       const answer = questions[questionNumber].answer;
       wrongCounter === 6 &&

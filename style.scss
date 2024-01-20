@@ -276,8 +276,8 @@ body::-webkit-scrollbar-thumb {
     background-repeat: no-repeat;
     background-size: contain;
     margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     background-position: center center;
     position: relative;
   }
@@ -444,7 +444,7 @@ body::-webkit-scrollbar-thumb {
     min-width: 300px;
     // background-color: bisque;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 30px;
     display: flex;
     flex-direction: row;
@@ -462,6 +462,7 @@ body::-webkit-scrollbar-thumb {
     animation-duration: 4s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    flex: 1 0 auto;
   }
 
   &_answer_letter {

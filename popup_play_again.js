@@ -51,12 +51,24 @@ const overlay = createLayout({
   tag: "div",
 });
 
-export function callPlayAgainModal() {
+export function callPlayAgainModal(win) {
   appendChildren({
     elementAppendChildrenTo: document.body,
     children: [popupPlayAgain, overlay],
   });
   overlay.style.visibility = "visible";
+  if (win === true) {
+    popupPlayAgain.style.backgroundImage =
+      "url('./assets/pics/W2sPhCCXVbQ.jpg')";
+    crossClosePopup.style.backgroundImage =
+      "url('./assets/icons/orange-cross.svg')";
+  }
+  if (win === false) {
+    popupPlayAgain.style.backgroundImage =
+      "url('./assets/pics/snowflakes_background_01.jpg')";
+    crossClosePopup.style.backgroundImage =
+      "url('./assets/icons/snowflakes/snowflake-1.svg')";
+  }
   popupPlayAgain.style.visibility = "visible";
 }
 
