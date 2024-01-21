@@ -40,8 +40,6 @@ function resetSnowflake(snowflake) {
   }
 }
 
-console.log(Math.random());
-
 function updatePositions() {
   snowflakes.forEach((snowflake) => {
     let origLife = parseFloat(snowflake.dataset.origLife);
