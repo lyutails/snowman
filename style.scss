@@ -76,6 +76,7 @@ body {
   animation-timing-function: linear;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
+  overflow: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -754,6 +755,42 @@ body::-webkit-scrollbar-thumb {
   top: 220px;
   right: 15px;
   // z-index: 500;
+}
+
+.far_snowflakes_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  // z-index: 1;
+}
+
+.far_snowflake {
+  position: absolute;
+  width: 0.5vw;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: snow;
+  opacity: 0.8;
+  animation-name: far_snowflakes_fall_anim;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes far_snowflakes_fall_anim {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0.1;
+  }
 }
 
 @keyframes heartAnim {

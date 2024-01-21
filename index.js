@@ -10,6 +10,7 @@ import createLayout from "./create_layout.js";
 import { commonCSSClassPrefix } from "./constants.js";
 import { snowflake_one_canvas } from "./snowflake_01.js";
 import { snowflake_two_canvas } from "./snowflake_02.js";
+import { farSnowflakesWrapper } from "./far_snow.js";
 
 const body = document.body;
 const snowmanWrapper = createLayout({
@@ -18,6 +19,7 @@ const snowmanWrapper = createLayout({
   classname: `${commonCSSClassPrefix}_wrapper`,
 });
 body.appendChild(snowmanWrapper);
+body.appendChild(farSnowflakesWrapper);
 
 appendChildren({
   elementAppendChildrenTo: snowmanWrapper,
