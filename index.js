@@ -11,6 +11,7 @@ import { commonCSSClassPrefix } from "./constants.js";
 import { snowflake_one_canvas } from "./snowflake_01.js";
 import { snowflake_two_canvas } from "./snowflake_02.js";
 import { farSnowflakesWrapper } from "./far_snow.js";
+import { mediumSnowflakesWrapper } from "./medium_snow.js";
 
 const body = document.body;
 const snowmanWrapper = createLayout({
@@ -20,6 +21,7 @@ const snowmanWrapper = createLayout({
 });
 body.appendChild(snowmanWrapper);
 body.appendChild(farSnowflakesWrapper);
+body.appendChild(mediumSnowflakesWrapper);
 
 appendChildren({
   elementAppendChildrenTo: snowmanWrapper,
