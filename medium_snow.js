@@ -33,9 +33,9 @@ function resetSnowflake(snowflake) {
   snowflake.dataset.origLife = Math.ceil(Math.random() * 4000) + 6000;
   mediumSnowflakesWrapper.dataset.origLife = life;
   snowflake.style.transform = `translate3d(${x}vw, ${y}vh, ${z}px)`;
-  snowflake.style.opacity = 1.0;
+  snowflake.style.opacity = 0.8;
   snowflake.dataset.periodFunction = Math.floor(Math.random() * period.length);
-  if (Math.random() < 0.008) {
+  if (Math.random() < 0.01) {
     snowflake.textContent = have_fun[Math.random() * have_fun.length];
   }
 }
