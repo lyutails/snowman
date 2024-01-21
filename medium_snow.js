@@ -1,5 +1,5 @@
 const life_per_tick = 1000 / 60;
-const max_snowflakes = Math.min(75, (screen.width / 1280) * 75);
+const max_snowflakes = Math.min(10, (screen.width / 1280) * 10);
 const snowflakes = [];
 
 const period = [
