@@ -31,14 +31,16 @@ function resetSnowflake(snowflake) {
     Math.random() < 0.1 ? Math.ceil(Math.random() * 100) + 25 : 0);
   let life = (snowflake.dataset.life = Math.ceil(Math.random() * 4000) + 6000);
   snowflake.dataset.origLife = Math.ceil(Math.random() * 4000) + 6000;
-  mediumSnowflakesWrapper.dataset.origLife = life;
+  snowflake.dataset.origLife = life;
   snowflake.style.transform = `translate3d(${x}vw, ${y}vh, ${z}px)`;
   snowflake.style.opacity = 0.8;
   snowflake.dataset.periodFunction = Math.floor(Math.random() * period.length);
   if (Math.random() < 0.01) {
-    snowflake.textContent = have_fun[Math.random() * have_fun.length];
+  snowflake.textContent = have_fun[Math.floor(Math.random() * have_fun.length)];
   }
 }
+
+console.log(Math.random());
 
 function updatePositions() {
   snowflakes.forEach((snowflake) => {
