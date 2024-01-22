@@ -1170,8 +1170,29 @@ body::-webkit-scrollbar-thumb {
   .popup_button {
     font-size: 1.8rem;
   }
-  .snowman_restart {
-    align-self: flex-end;
+  .snowflake_one_canvas {
+    display: block;
+    position: absolute;
+    top: 120px;
+    left: 10px;
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .snowflake_one_controls {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .snowflake_two_canvas {
+    display: block;
+    position: absolute;
+    top: 220px;
+    right: 15px;
+    max-width: 80px;
+    max-height: 80px;
+  }
+  .snowflake_two_controls {
+    max-width: 80px;
+    max-height: 80px;
   }
 }
 @media screen and (min-width: 1500px) and (max-width: 2800px) {
