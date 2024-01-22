@@ -1,5 +1,5 @@
 const life_per_tick = 1000 / 60;
-const max_snowflakes = Math.min(20, (screen.width / 1280) * 20);
+const max_snowflakes = Math.min(18, (screen.width / 1280) * 18);
 const snowflakes = [];
 
 const period = [
@@ -35,7 +35,7 @@ function resetSnowflake(snowflake) {
   snowflake.style.transform = `translate3d(${x}vw, ${y}vh, ${z}px)`;
   snowflake.style.opacity = 0.8;
   snowflake.dataset.periodFunction = Math.floor(Math.random() * period.length);
-  if (Math.random() < 0.002) {
+  if (Math.random() < 0.0006) {
   snowflake.textContent = have_fun[Math.floor(Math.random() * have_fun.length)];
   }
 }

@@ -15,7 +15,7 @@ export function createFarSnow() {
     });
 
     farSnowflake.style.left = `${Math.random() * 100}%`;
-    farSnowflake.style.animationDuration = `${Math.random() * 6 + 6}s`;
+    farSnowflake.style.animationDuration = `${Math.random() * 6 + 8}s`;
     farSnowflake.style.animationDelay = `${Math.random()}s`;
     farSnowflakesWrapper.appendChild(farSnowflake);
   }
