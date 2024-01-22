@@ -105,6 +105,7 @@ const createControls = () => {
   renderer.domElement.style.top = "220px";
   renderer.domElement.style.right = "15px";
   renderer.domElement.style.zIndex = "500";
+  renderer.domElement.classList.add('snowflake_two_controls');
   document.body.appendChild(renderer.domElement);
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.autoRotate = true;

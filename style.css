@@ -660,6 +660,13 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   top: 120px;
   left: 10px;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.snowflake_one_controls {
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .snowflake_two_canvas {
@@ -667,6 +674,13 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   top: 220px;
   right: 15px;
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.snowflake_two_controls {
+  max-width: 150px;
+  max-height: 150px;
 }
 
 .far_snowflakes_wrapper {
