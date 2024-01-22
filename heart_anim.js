@@ -11,6 +11,7 @@ export function repairHeart(hearts) {
       (heart.style.backgroundImage = `url("./assets/icons/broken-heart.svg")`)
     ) {
       heart.style.backgroundImage = `url("./assets/icons/heart.svg")`;
+      heart.style.animationName = 'heartAnim';
     }
   });
 }
